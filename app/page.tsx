@@ -43,7 +43,7 @@ export default function Home() {
         </div>
 
         <AboutProvider>
-          <div className="mt-15 mb-0 flex w-full items-center justify-between self-start">
+          <div className="mt-10 mb-0 flex w-full items-center justify-between self-start">
             <span className="font-pixel text-[13px] font-normal tracking-wide text-gray-400 dark:text-gray-500">
               /overview
             </span>
@@ -57,7 +57,7 @@ export default function Home() {
         </AboutProvider>
 
 
-          <div className="mt-15 mb-0 flex w-full items-center justify-between self-start">
+          <div className="mt-10 mb-0 flex w-full items-center justify-between self-start">
             <span className="font-pixel text-[13px] font-normal tracking-wide text-gray-400 dark:text-gray-500">
               /builds
             </span>

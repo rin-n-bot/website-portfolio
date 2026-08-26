@@ -19,8 +19,8 @@ const LaptopFrame = ({ children, className = '' }: LaptopFrameProps) => {
       className={`relative w-full mx-auto ${className}`}
       style={
         {
-          '--macbook-bezel': '8px',
-          '--macbook-bezel-top': '10px',
+          '--macbook-bezel': '6px',
+          '--macbook-bezel-top': '6px',
           '--macbook-radius': '10px'
         } as React.CSSProperties
       }
@@ -37,8 +37,6 @@ const LaptopFrame = ({ children, className = '' }: LaptopFrameProps) => {
           paddingBottom: 0
         }}
       >
-        {/* Camera dot, embedded in the top bezel */}
-        <span className="absolute top-0.75 left-1/2 -translate-x-1/2 z-30 h-1.25 w-1.25 rounded-full bg-neutral-800 ring-1 ring-neutral-600/90" />
 
         {/* Screen content area */}
         <div className="relative overflow-hidden rounded-sm">
@@ -49,14 +47,8 @@ const LaptopFrame = ({ children, className = '' }: LaptopFrameProps) => {
       {/* Chin / lower bezel strip */}
       <div
         className="relative bg-gray-900 flex items-center justify-center"
-        style={{ paddingTop: 'var(--macbook-bezel)', paddingBottom: 'var(--macbook-bezel)' }}
+        style={{ paddingTop: 'var(--macbook-bezel)', paddingBottom: 4 }}
       >
-        <svg viewBox="0 0 88 88" className="h-1 w-2 opacity-30" style={{ transform: 'scale(2.5)' }} aria-hidden="true">
-          <rect x="4" y="4" width="38" height="38" fill="#9c9c9c" />
-          <rect x="46" y="4" width="38" height="38" fill="#9c9c9c" />
-          <rect x="4" y="46" width="38" height="38" fill="#9c9c9c" />
-          <rect x="46" y="46" width="38" height="38" fill="#9c9c9c" />
-        </svg>
       </div>
 
       {/* Laptop base / hinge */}

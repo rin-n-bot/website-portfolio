@@ -14,7 +14,7 @@ const tabs: { value: AboutTab; label: string }[] = [
 const services = [
   {
     icon: Smartphone,
-    title: "Mobile Apps",
+    title: "Mobile App",
     tag: "android",
   },
   {
@@ -24,7 +24,7 @@ const services = [
   },
   {
     icon: Laptop,
-    title: "Web Apps",
+    title: "Software",
     tag: "cross platform",
   },
 ];
@@ -145,7 +145,7 @@ export default function About() {
                 return (
                   <div
                     key={service.title}
-                    className={`flex items-center px-3 gap-6 py-4 border-b border-gray-200 dark:border-gray-800 ${
+                    className={`flex items-center px-3 gap-4 py-4 border-b border-gray-200 dark:border-gray-800 ${
                       index === services.length - 1 ? "last:border-b-0" : ""
                     }`}
                   >
@@ -155,7 +155,7 @@ export default function About() {
                         {service.title}
                       </h3>
                     </div>
-                    <span className="shrink-0 rounded-full px-2 py-0.5 text-[13px] font-onest font-normal text-gray-400 dark:text-gray-500">
+                    <span className="shrink-0 rounded-full py-0.5 text-[13px] font-onest font-normal text-gray-400 dark:text-gray-500">
                       {service.tag}
                     </span>
                   </div>

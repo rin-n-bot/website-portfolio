@@ -3,10 +3,13 @@
 import { useEffect, useRef, useState } from "react";
 
 const CELL = 24;
-const DOT_LIGHT = "rgba(0,0,0,0.05)";
-const DOT_DARK = "rgba(255,255,255,0.06)";
-const SYMBOL_LIGHT = "rgba(0,0,0,0.35)";  // <-- changed from orange to dark subtle
-const SYMBOL_DARK = "rgba(255,255,255,0.35)";
+const DOT_LIGHT = "rgba(0,0,0,0.03)";
+const DOT_DARK = "rgba(255,255,255,0.03)";
+
+// Subtle orange in both themes
+const SYMBOL_LIGHT = "rgba(255,95,31,0.35)";
+const SYMBOL_DARK = "rgba(255,95,31,0.35)";
+
 const MASK_RADIUS = 150;
 const LAG_FACTOR = 0.12;
 const INACTIVE_TIMEOUT = 1000;
@@ -20,8 +23,6 @@ function buildSymbolTile(isDark: boolean): string {
   )}`;
 }
 
-// Read the current `.dark` state during render (client only), matching
-// ThemeToggle's approach so the dots/symbols start in the right theme.
 function getInitialDark(): boolean {
   if (typeof document === "undefined") return false;
   return document.documentElement.classList.contains("dark");
@@ -33,8 +34,6 @@ export default function CursorGrid() {
   const [isDark, setIsDark] = useState<boolean>(getInitialDark);
   const timeoutRef = useRef<number | null>(null);
 
-  // Subscribe to `.dark` class changes. setState only happens inside the
-  // observer callback (a subscription), not synchronously in the effect body.
   useEffect(() => {
     const root = document.documentElement;
     const observer = new MutationObserver(() => {
@@ -109,7 +108,6 @@ export default function CursorGrid() {
 
   return (
     <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-white transition-colors duration-200 dark:bg-[#0a0a0a]">
-      {/* Base dots */}
       <div
         className="absolute inset-0"
         style={{
@@ -118,7 +116,6 @@ export default function CursorGrid() {
         }}
       />
 
-      {/* Overlay symbols – minuses spaced 18px apart */}
       <div
         ref={overlayRef}
         className="absolute inset-0 transition-opacity duration-300"
