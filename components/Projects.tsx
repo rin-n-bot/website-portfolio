@@ -174,7 +174,7 @@ export default function Projects() {
                     height={24}
                     className="h-6 w-6 object-contain"
                   />
-                  <span className="font-pixel text-[15px] font-normal text-gray-900 dark:text-gray-100">
+                  <span className="font-dm text-[15px] font-normal text-gray-900 dark:text-gray-100">
                     {project.label}
                   </span>
                 </div>

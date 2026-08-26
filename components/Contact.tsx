@@ -109,12 +109,12 @@ export default function Contact() {
   return (
     <>
       <div className="flex flex-col items-start gap-6">
-        <h2 className="max-w-xl font-pixel text-md font-normal tracking-tight text-gray-500 dark:text-gray-400">
+        <h2 className="max-w-xl font-dm text-md font-normal tracking-tight text-gray-500 dark:text-gray-400">
           willing to learn and contribute, whether it`s a quick or long term.<br/> if you`re building something, hit me on{" "}
           <a
             href={gmailComposeUrl}
             onClick={openGmailCompose}
-            className="text-gray-900 dark:text-gray-100 text-[15px] font-geist underline underline-offset-2 transition-colors hover:text-[#FF5F1F]"
+            className="text-gray-900 dark:text-gray-100 text-[15px] font-onest underline underline-offset-2 transition-colors hover:text-[#FF5F1F]"
           >
             {contact.email}
           </a>.
@@ -140,10 +140,10 @@ export default function Contact() {
             })}
           </div>
           <div className="flex items-center gap-2">
-            <span className="font-geist text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500">
+            <span className="font-pixel text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500">
               ph utc+8
             </span>
-            <span className="font-geist text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500">
+            <span className="font-pixel text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500">
               {time}
             </span>
           </div>

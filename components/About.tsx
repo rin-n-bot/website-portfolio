@@ -151,11 +151,11 @@ export default function About() {
                   >
                     <Icon className="h-4 w-4 text-gray-400" />
                     <div className="flex-1">
-                      <h3 className="font-geist text-[15px] font-normal dark:text-gray-100 text-gray-900">
+                      <h3 className="font-dm text-[15px] font-normal dark:text-gray-100 text-gray-900">
                         {service.title}
                       </h3>
                     </div>
-                    <span className="shrink-0 rounded-full px-2 py-0.5 text-[13px] font-geist font-normal text-gray-400 dark:text-gray-500">
+                    <span className="shrink-0 rounded-full px-2 py-0.5 text-[13px] font-onest font-normal text-gray-400 dark:text-gray-500">
                       {service.tag}
                     </span>
                   </div>
@@ -165,17 +165,17 @@ export default function About() {
           )}
 
           {activeTab === "experience" && (
-            <div className="flex flex-col">
+            <div className="flex flex-col px-3">
               <div className="flex items-center justify-between gap-4 py-4 border-b border-gray-200 dark:border-gray-800 last:border-b-0">
                 <div className="flex-1 pr-16">
-                  <h3 className="font-geist text-[15px] font-normal text-gray-900 dark:text-gray-100">
+                  <h3 className="font-dm text-[15px] font-normal text-gray-900 dark:text-gray-100">
                     Projects
                   </h3>
-                  <p className="mt-1 text-sm font-pixel font-normal text-gray-500 dark:text-gray-400">
+                  <p className="mt-1 text-sm font-onest font-normal text-gray-500 dark:text-gray-400">
                     CrossRent , SF Credit Management System
                   </p>
                 </div>
-                <span className="shrink-0 rounded-full px-2 py-0.5 text-[13px] font-geist font-normal text-gray-400 dark:text-gray-500">
+                <span className="shrink-0 rounded-full px-2 py-0.5 text-[13px] font-onest font-normal text-gray-400 dark:text-gray-500">
                   present
                 </span>
               </div>
@@ -183,28 +183,40 @@ export default function About() {
           )}
 
           {activeTab === "education" && (
-            <div className="flex flex-col">
+            <div className="flex flex-col px-3">
               {/* College */}
               <div className="flex items-center gap-6 py-4 border-b border-gray-200 dark:border-gray-800">
                 <div className="flex-1">
-                  <h3 className="font-geist text-[15px] font-normal text-gray-900 dark:text-gray-100">
+                  <h3 className="font-dm text-[15px] font-normal text-gray-900 dark:text-gray-100">
                     Holy Cross of Davao College
                   </h3>
                 </div>
-                <span className="shrink-0 font-geist text-[13px] font-normal text-gray-400 dark:text-gray-500">
-                  2026 – Present
+                <span className="shrink-0 font-onest text-[13px] font-normal text-gray-400 dark:text-gray-500">
+                  third year college
                 </span>
               </div>
 
               {/* Senior High */}
-              <div className="flex items-center gap-6 py-4 last:border-b-0">
+              <div className="flex items-center gap-6 py-4 border-b border-gray-200 dark:border-gray-800">
                 <div className="flex-1">
-                  <h3 className="font-geist text-[15px] font-normal text-gray-900 dark:text-gray-100">
+                  <h3 className="font-dm text-[15px] font-normal text-gray-900 dark:text-gray-100">
                     Bernardo D. Carpio National High School
                   </h3>
                 </div>
-                <span className="shrink-0 font-geist text-[13px] font-normal text-gray-400 dark:text-gray-500">
-                  2021 – 2023
+                <span className="shrink-0 font-onest text-[13px] font-normal text-gray-400 dark:text-gray-500">
+                  senior high
+                </span>
+              </div>
+
+              {/* College */}
+              <div className="flex items-center gap-6 py-4 last:border-b-0">
+                <div className="flex-1">
+                  <h3 className="font-dm text-[15px] font-normal text-gray-900 dark:text-gray-100">
+                    Emilio Ramos National High School
+                  </h3>
+                </div>
+                <span className="shrink-0 font-onest text-[13px] font-normal text-gray-400 dark:text-gray-500">
+                  junior high
                 </span>
               </div>
             </div>

@@ -20,7 +20,7 @@ export default function Home() {
             <div className="flex flex-1 flex-col">
               {/* Name + socials row */}
               <div className="flex items-center justify-between gap-4 w-full">
-                <h2 className="font-geist text-[15px] font-normal tracking-tight text-gray-900 dark:text-gray-100">
+                <h2 className="font-dm text-[15px] font-normal tracking-tight text-gray-900 dark:text-gray-100">
                   @ahroneambasan
                 </h2>
                 <ThemeToggle />
@@ -29,7 +29,7 @@ export default function Home() {
               {/* Role row */}
               <div className="flex items-center gap-1.5 mt-0">
                 <LayersPlus className="h-4 w-4 text-gray-400 dark:text-gray-500" />
-                <p className="font-geist text-[13px] tracking-tight font-normal text-gray-400 dark:text-gray-500">
+                <p className="font-onest text-[13px] tracking-tight font-normal text-gray-400 dark:text-gray-500">
                   Full-Stack Dev
                 </p>
               </div>
@@ -37,7 +37,7 @@ export default function Home() {
           </div>
 
           {/* Description below */}
-          <h1 className="font-pixel text-md sm:text-md font-normal tracking-tight text-gray-500 dark:text-gray-400 mt-6 mb-0">
+          <h1 className="font-dm text-md sm:text-md font-normal tracking-tight text-gray-500 dark:text-gray-400 mt-6 mb-0">
             building native products that people actually use<br/> and aims to solve people`s problems using technology.
           </h1>
         </div>
@@ -57,7 +57,7 @@ export default function Home() {
         </AboutProvider>
 
 
-          <div className="mt-15 mb-5 flex w-full items-center justify-between self-start">
+          <div className="mt-15 mb-0 flex w-full items-center justify-between self-start">
             <span className="font-pixel text-[13px] font-normal tracking-wide text-gray-400 dark:text-gray-500">
               /builds
             </span>
@@ -70,7 +70,7 @@ export default function Home() {
           </section>
 
 
-        <span className="font-pixel text-[13px] font-normal tracking-wide text-gray-400 dark:text-gray-500 self-start mt-15 mb-5">
+        <span className="font-pixel text-[13px] font-normal tracking-wide text-gray-400 dark:text-gray-500 self-start mt-15 mb-0">
           /skills
         </span>
 
@@ -79,7 +79,7 @@ export default function Home() {
           <TechStacks />
         </section>
 
-        <span className="font-pixel text-[13px] font-normal tracking-wide text-gray-400 dark:text-gray-500 self-start mt-15 mb-5">
+        <span className="font-pixel text-[13px] font-normal tracking-wide text-gray-400 dark:text-gray-500 self-start mt-15 mb-0">
           /collaborate
         </span>
 
