@@ -6,9 +6,10 @@ const techStacks = [
   "Expo,",
   "Electron,",
   "Firebase,",
-  "PostgreSQL,",
+  "Supabase,",
   "Tailwind,",
   "Zustand,",
+  "Vercel,",
   "Node.js,",
   "Docker,",
   "Vite,",
@@ -20,7 +21,7 @@ const techStacks = [
 export default function TechStacks() {
   return (
     <>
-      <h1 className="font-pixel text-md font-normal text-gray-600 tracking-tight mb-6 max-w-3xl text-left">
+      <h1 className="font-pixel text-md font-normal text-gray-500 dark:text-gray-400 tracking-tight mb-6 max-w-3xl text-left">
         tools and frameworks i know, but can go outside it when needed.
       </h1>
 
@@ -28,7 +29,7 @@ export default function TechStacks() {
         {techStacks.map((tech) => (
           <span
             key={tech}
-            className="rounded-lg bg-white py-1 pr-2 text-[13px] font-geist-mono font-normal text-gray-400 transition-colors hover:text-gray-900"
+            className="rounded-lg bg-transparent py-1 pr-2 text-[13px] font-geist-mono font-normal text-gray-400 dark:text-gray-500 transition-colors hover:text-[#FF5F1F]"
           >
             {tech}
           </span>

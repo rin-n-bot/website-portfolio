@@ -1,0 +1,53 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { LightbulbOff, Lightbulb } from "lucide-react";
+
+
+export default function ThemeToggle() {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", isDark);
+  }, [isDark]);
+  
+
+  const toggle = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
+
+    document.documentElement.style.setProperty("--origin-x", `${x}px`);
+    document.documentElement.style.setProperty("--origin-y", `${y}px`);
+
+    const next = !isDark;
+
+    const commit = () => {
+      document.documentElement.classList.toggle("dark", next);
+      setIsDark(next);
+    };
+    
+    if (document.startViewTransition) {
+      document.startViewTransition(commit);
+    } else {
+      commit();
+    }
+  };
+
+
+  return (
+    <button
+      type="button"
+      onClick={toggle}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      className="relative flex h-9 w-9 items-center justify-center rounded-lg text-gray-500 dark:text-gray-400 transition-colors hover:text-[#FF5F1F] hover:bg-gray-100 dark:hover:bg-gray-800"
+    >
+      <span
+        key={`icon-${isDark ? "sun" : "moon"}`}
+        className="animate-icon-swap flex items-center justify-center text-gray-500 dark:text-gray-400"
+      >
+        {isDark ? <Lightbulb className="h-4.5 w-4.5" /> : <LightbulbOff className="h-4.5 w-4.5" />}
+      </span>
+    </button>
+  );
+}

@@ -88,7 +88,7 @@ export function AboutTabDropdown() {
         onClick={() => setOpen((o) => !o)}
         aria-haspopup="listbox"
         aria-expanded={open}
-        className="flex items-center gap-1.5 rounded-lg py-1 text-[13px] font-pixel font-normal tracking-wide text-gray-400 transition-colors hover:text-[#FF5F1F]"
+        className="flex items-center gap-1.5 rounded-lg py-1 text-[13px] font-pixel font-normal tracking-wide text-gray-400 dark:text-gray-500 transition-colors hover:text-[#FF5F1F]"
       >
         {active.label}
         <ChevronDown
@@ -99,7 +99,7 @@ export function AboutTabDropdown() {
       {open && (
         <div
           role="listbox"
-          className="absolute right-0 z-20 mt-1.5 w-30 overflow-hidden rounded-lg bg-[#f5f5f5] shadow-xl animate-dropdown"
+          className="absolute right-0 z-20 mt-1.5 w-30 overflow-hidden rounded-lg bg-[#f5f5f5] dark:bg-[#1a1a1a] shadow-xl animate-dropdown"
         >
           {tabs.map((tab) => {
             const isActive = tab.value === activeTab;
@@ -115,8 +115,8 @@ export function AboutTabDropdown() {
                 }}
                 className={`flex w-full items-center gap-1.5 px-3 py-1.5 text-left text-[13px] font-pixel font-normal tracking-wide transition-colors ${
                   isActive
-                    ? "text-gray-900"
-                    : "text-gray-500 hover:text-[#FF5F1F]"
+                    ? "text-gray-900 dark:text-gray-100"
+                    : "text-gray-500 dark:text-gray-400 hover:text-[#FF5F1F]"
                 }`}
               >
                 {tab.label}
@@ -145,17 +145,17 @@ export default function About() {
                 return (
                   <div
                     key={service.title}
-                    className={`flex items-center gap-6 py-4 border-b border-gray-200 ${
+                    className={`flex items-center gap-6 py-4 border-b border-gray-200 dark:border-gray-800 ${
                       index === services.length - 1 ? "last:border-b-0" : ""
                     }`}
                   >
                     <Icon className="h-4 w-4 text-gray-400" />
                     <div className="flex-1">
-                      <h3 className="font-geist text-[15px] font-normal text-gray-900">
+                      <h3 className="font-geist text-[15px] font-normal dark:text-gray-100 text-gray-900">
                         {service.title}
                       </h3>
                     </div>
-                    <span className="shrink-0 rounded-full px-2 py-0.5 text-[13px] font-geist font-normal text-gray-400">
+                    <span className="shrink-0 rounded-full px-2 py-0.5 text-[13px] font-geist font-normal text-gray-400 dark:text-gray-500">
                       {service.tag}
                     </span>
                   </div>
@@ -166,16 +166,16 @@ export default function About() {
 
           {activeTab === "experience" && (
             <div className="flex flex-col">
-              <div className="flex items-center justify-between gap-4 py-4 border-b border-gray-200 last:border-b-0">
+              <div className="flex items-center justify-between gap-4 py-4 border-b border-gray-200 dark:border-gray-800 last:border-b-0">
                 <div className="flex-1 pr-16">
-                  <h3 className="font-geist text-[15px] font-normal text-gray-900">
+                  <h3 className="font-geist text-[15px] font-normal text-gray-900 dark:text-gray-100">
                     Projects
                   </h3>
-                  <p className="mt-1 text-sm font-pixel font-normal text-gray-500">
+                  <p className="mt-1 text-sm font-pixel font-normal text-gray-500 dark:text-gray-400">
                     CrossRent , SF Credit Management System
                   </p>
                 </div>
-                <span className="shrink-0 rounded-full px-2 py-0.5 text-[13px] font-geist font-normal text-gray-400">
+                <span className="shrink-0 rounded-full px-2 py-0.5 text-[13px] font-geist font-normal text-gray-400 dark:text-gray-500">
                   present
                 </span>
               </div>
@@ -185,13 +185,13 @@ export default function About() {
           {activeTab === "education" && (
             <div className="flex flex-col">
               {/* College */}
-              <div className="flex items-center gap-6 py-4 border-b border-gray-200">
+              <div className="flex items-center gap-6 py-4 border-b border-gray-200 dark:border-gray-800">
                 <div className="flex-1">
-                  <h3 className="font-geist text-[15px] font-normal text-gray-900">
+                  <h3 className="font-geist text-[15px] font-normal text-gray-900 dark:text-gray-100">
                     Holy Cross of Davao College
                   </h3>
                 </div>
-                <span className="shrink-0 font-geist text-[13px] font-normal text-gray-400">
+                <span className="shrink-0 font-geist text-[13px] font-normal text-gray-400 dark:text-gray-500">
                   2026 – Present
                 </span>
               </div>
@@ -199,11 +199,11 @@ export default function About() {
               {/* Senior High */}
               <div className="flex items-center gap-6 py-4 last:border-b-0">
                 <div className="flex-1">
-                  <h3 className="font-geist text-[15px] font-normal text-gray-900">
+                  <h3 className="font-geist text-[15px] font-normal text-gray-900 dark:text-gray-100">
                     Bernardo D. Carpio National High School
                   </h3>
                 </div>
-                <span className="shrink-0 font-geist text-[13px] font-normal text-gray-400">
+                <span className="shrink-0 font-geist text-[13px] font-normal text-gray-400 dark:text-gray-500">
                   2021 – 2023
                 </span>
               </div>
@@ -211,46 +211,6 @@ export default function About() {
           )}
         </div>
       </div>
-
-      <style>{`
-        @keyframes fade-in-up {
-          from {
-            opacity: 0;
-            transform: translateY(8px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-fade-in-up {
-          animation: fade-in-up 0.3s ease-out forwards;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .animate-fade-in-up {
-            animation: none;
-          }
-        }
-
-        @keyframes dropdown {
-          from {
-            opacity: 0;
-            transform: translateY(-6px) scale(0.98);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-        }
-        .animate-dropdown {
-          animation: dropdown 0.18s ease-out forwards;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .animate-dropdown {
-            animation: none;
-          }
-        }
-      `}</style>
     </div>
   );
 }

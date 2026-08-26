@@ -3,27 +3,49 @@
 import { useEffect, useRef, useState } from "react";
 
 const CELL = 24;
-const SYMBOL_OPACITY = 0.2; // more visible but still subtle
-const DOT_OPACITY = 0.05;
+const DOT_LIGHT = "rgba(0,0,0,0.05)";
+const DOT_DARK = "rgba(255,255,255,0.06)";
+const SYMBOL_LIGHT = "rgba(0,0,0,0.35)";  // <-- changed from orange to dark subtle
+const SYMBOL_DARK = "rgba(255,255,255,0.35)";
 const MASK_RADIUS = 150;
-const LAG_FACTOR = 0.12; // smooth trailing
-const INACTIVE_TIMEOUT = 1000; // ms before overlay fades out
+const LAG_FACTOR = 0.12;
+const INACTIVE_TIMEOUT = 1000;
 
-// Tile with a minus symbol at each cell (3x3 block)
-const SYMBOL_TILE = `data:image/svg+xml,${encodeURIComponent(
-  `<svg xmlns="http://www.w3.org/2000/svg" width="${CELL * 3}" height="${CELL * 3}">
-     <g stroke="rgba(0,0,0,${SYMBOL_OPACITY})" stroke-width="1.2" stroke-linecap="round">
-       <path d="M${CELL * 0.5 - 3} ${CELL * 0.5}h6" />
-       <path d="M${CELL * 1.5 - 3} ${CELL * 1.5}h6" />
-       <path d="M${CELL * 2.5 - 3} ${CELL * 2.5}h6" />
-     </g>
-   </svg>`
-)}`;
+function buildSymbolTile(isDark: boolean): string {
+  const color = isDark ? SYMBOL_DARK : SYMBOL_LIGHT;
+  return `data:image/svg+xml,${encodeURIComponent(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
+       <path d="M6 9h6" stroke="${color}" stroke-width="1.2" stroke-linecap="round" />
+     </svg>`
+  )}`;
+}
+
+// Read the current `.dark` state during render (client only), matching
+// ThemeToggle's approach so the dots/symbols start in the right theme.
+function getInitialDark(): boolean {
+  if (typeof document === "undefined") return false;
+  return document.documentElement.classList.contains("dark");
+}
 
 export default function CursorGrid() {
   const overlayRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(false);
+  const [isDark, setIsDark] = useState<boolean>(getInitialDark);
   const timeoutRef = useRef<number | null>(null);
+
+  // Subscribe to `.dark` class changes. setState only happens inside the
+  // observer callback (a subscription), not synchronously in the effect body.
+  useEffect(() => {
+    const root = document.documentElement;
+    const observer = new MutationObserver(() => {
+      setIsDark(root.classList.contains("dark"));
+    });
+    observer.observe(root, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
+
+  const symbolTile = buildSymbolTile(isDark);
+  const dotColor = isDark ? DOT_DARK : DOT_LIGHT;
 
   useEffect(() => {
     const el = overlayRef.current;
@@ -86,17 +108,17 @@ export default function CursorGrid() {
   }, []);
 
   return (
-    <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-white">
+    <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-white transition-colors duration-200 dark:bg-[#0a0a0a]">
       {/* Base dots */}
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: `radial-gradient(circle, rgba(0,0,0,${DOT_OPACITY}) 1px, transparent 1px)`,
+          backgroundImage: `radial-gradient(circle, ${dotColor} 1px, transparent 1px)`,
           backgroundSize: `${CELL}px ${CELL}px`,
         }}
       />
 
-      {/* Overlay symbols – all minus, fades in with delay */}
+      {/* Overlay symbols – minuses spaced 18px apart */}
       <div
         ref={overlayRef}
         className="absolute inset-0 transition-opacity duration-300"
@@ -106,8 +128,8 @@ export default function CursorGrid() {
             "--cursor-y": "50vh",
             opacity: active ? 1 : 0,
             transitionDelay: active ? "150ms" : "0ms",
-            backgroundImage: `url("${SYMBOL_TILE}")`,
-            backgroundSize: `${CELL * 3}px ${CELL * 3}px`,
+            backgroundImage: `url("${symbolTile}")`,
+            backgroundSize: "18px 18px",
             backgroundRepeat: "repeat",
             maskImage: `radial-gradient(circle ${MASK_RADIUS}px at var(--cursor-x) var(--cursor-y), black 0%, transparent 100%)`,
             WebkitMaskImage: `radial-gradient(circle ${MASK_RADIUS}px at var(--cursor-x) var(--cursor-y), black 0%, transparent 100%)`,

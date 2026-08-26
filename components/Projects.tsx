@@ -155,7 +155,7 @@ export default function Projects() {
     <>
       <div className="flex w-full flex-col gap-4">
         {/* Project list rows */}
-        <div className="flex flex-col border-b border-gray-200">
+        <div className="flex flex-col border-b border-gray-200 dark:border-gray-800">
           {projects.map((project) => {
             const isActive = project.id === activeId;
             const isExpanded = isActive && isOpen;
@@ -164,7 +164,7 @@ export default function Projects() {
                 key={project.id}
                 type="button"
                 onClick={() => handleRowClick(project.id)}
-                className="flex items-center justify-between gap-4 py-4 border-b border-gray-200 last:border-b-0 text-left transition-colors hover:bg-gray-50"
+                className="flex items-center justify-between gap-4 px-3 py-4 border-b border-gray-200 dark:border-gray-800 last:border-b-0 text-left transition-colors hover:bg-gray-50 dark:hover:bg-gray-900"
               >
                 <div className="flex items-center gap-3">
                   <Image
@@ -174,7 +174,7 @@ export default function Projects() {
                     height={24}
                     className="h-6 w-6 object-contain"
                   />
-                  <span className="font-pixel text-[15px] font-normal text-gray-900">
+                  <span className="font-pixel text-[15px] font-normal text-gray-900 dark:text-gray-100">
                     {project.label}
                   </span>
                 </div>
@@ -301,27 +301,6 @@ export default function Projects() {
           </div>
         </div>
       )}
-
-      <style>{`
-        @keyframes fade-in-up {
-          from {
-            opacity: 0;
-            transform: translateY(8px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-fade-in-up {
-          animation: fade-in-up 0.3s ease-out forwards;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .animate-fade-in-up {
-            animation: none;
-          }
-        }
-      `}</style>
     </>
   );
 }
