@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 function XIcon({ className }: { className?: string }) {
   return (
@@ -48,21 +47,10 @@ const contact = {
 const gmailSubject = "Project Inquiry";
 const gmailBody = "";
 
-// Desktop web fallback — Gmail's own compose URL, opens the composer
-// directly in a browser tab. If the person isn't logged in, Google's login
-// flow honors these params and drops them into the composer post-login.
 const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
   contact.email
 )}&su=${encodeURIComponent(gmailSubject)}&body=${encodeURIComponent(gmailBody)}`;
 
-// mailto: is the OS-level mechanism mobile platforms actually route through
-// a compose screen. On Android it opens Gmail directly (or a chooser that
-// includes it) into a prefilled composer. On iOS it opens whichever app is
-// set as the system default Mail handler — Gmail, if the person has set it
-// as default under Settings > Mail > Default Mail App; Apple Mail otherwise.
-// Custom app schemes like `googlegmail://` are iOS-only and unregistered on
-// Android, so they fail silently there — mailto: is the one link every
-// platform's mail app actually listens for.
 const mailtoUrl = `mailto:${encodeURIComponent(contact.email)}?subject=${encodeURIComponent(
   gmailSubject
 )}&body=${encodeURIComponent(gmailBody)}`;
@@ -76,36 +64,14 @@ function openGmailCompose(e: React.MouseEvent) {
   e.preventDefault();
 
   if (isMobileDevice()) {
-    // Straight to whatever mail app the OS routes mailto: to — no scheme
-    // guessing, no fallback timer needed, since this is the link mail apps
-    // are actually built to handle.
     window.location.href = mailtoUrl;
     return;
   }
 
-  // Desktop: open Gmail's web composer directly in a new tab.
   window.open(gmailComposeUrl, "_blank", "noopener,noreferrer");
 }
 
 export default function Contact() {
-  const [time, setTime] = useState("");
-
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      const options: Intl.DateTimeFormatOptions = {
-        timeZone: "Asia/Manila",
-        hour: "numeric",
-        minute: "2-digit",
-        hour12: true,
-      };
-      setTime(new Intl.DateTimeFormat("en-US", options).format(now));
-    };
-    updateTime();
-    const timer = setInterval(updateTime, 1000);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <>
       <div className="flex flex-col items-start gap-6">
@@ -120,33 +86,23 @@ export default function Contact() {
           </a>.
         </h2>
 
-        {/* Socials + clock in one row */}
-        <div className="flex w-full items-center justify-between gap-3 mt-5">
-          <div className="flex flex-wrap items-center gap-3">
-            {contact.socials.map((social) => {
-              const Icon = social.Icon;
-              return (
-                <Link
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group flex items-center gap-1 rounded-full py-2 pr-3.5 text-gray-400 transition-colors hover:text-[#FF5F1F]"
-                >
-                  <Icon className="h-4.5 w-4.5" />
-                  <span className="sr-only">{social.name}</span>
-                </Link>
-              );
-            })}
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="font-pixel text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500">
-              ph utc+8
-            </span>
-            <span className="font-pixel text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500">
-              {time}
-            </span>
-          </div>
+        {/* Socials row (no clock) */}
+        <div className="flex flex-wrap items-center gap-3 mt-5">
+          {contact.socials.map((social) => {
+            const Icon = social.Icon;
+            return (
+              <Link
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                rel="noreferrer"
+                className="group flex items-center gap-1 rounded-full py-2 pr-3.5 text-gray-400 transition-colors hover:text-[#FF5F1F]"
+              >
+                <Icon className="h-4.5 w-4.5" />
+                <span className="sr-only">{social.name}</span>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </>

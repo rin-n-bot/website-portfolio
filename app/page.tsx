@@ -2,13 +2,14 @@ import About, { AboutProvider, AboutTabDropdown } from "@/components/About";
 import Projects from "@/components/Projects";
 import TechStacks from "@/components/TechStacks";
 import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 import ThemeToggle from "@/components/ThemeToggle";
 import AvatarFlip from "@/components/AvatarFlip";
 import { LayersPlus } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center px-6 pb-30 pt-5 text-gray-900 dark:text-gray-100">
+    <div className="flex min-h-screen flex-col items-center justify-center px-6 pb-10 pt-5 text-gray-900 dark:text-gray-100">
       <main className="flex w-full max-w-xl flex-col items-center gap-6">
         
         {/* Hero – left aligned via self-start */}
@@ -84,10 +85,12 @@ export default function Home() {
         </span>
 
         {/* Contact – centered */}
-        <section id="contact" className="w-full">
+        <section id="contact" className="w-full mb-15">
           <Contact />
         </section>
+        <Footer />
       </main>
+
     </div>
   );
 }
