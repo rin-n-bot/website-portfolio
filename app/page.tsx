@@ -1,9 +1,9 @@
-import Image from "next/image";
 import About, { AboutProvider, AboutTabDropdown } from "@/components/About";
 import Projects from "@/components/Projects";
 import TechStacks from "@/components/TechStacks";
 import Contact from "@/components/Contact";
 import ThemeToggle from "@/components/ThemeToggle";
+import AvatarFlip from "@/components/AvatarFlip";
 import { LayersPlus } from "lucide-react";
 
 export default function Home() {
@@ -15,13 +15,7 @@ export default function Home() {
         <div className="flex w-full flex-col items-start gap-0 mt-10 self-start text-left">
           {/* Avatar + name/role side by side */}
           <div className="flex w-full items-start gap-4">
-            <Image
-              src="/ahrone.png"
-              alt="Ahrone Ambasan"
-              width={160}
-              height={160}
-              className="h-12 w-12 rounded-2xl object-cover grayscale mb-2"
-            />
+            <AvatarFlip />
 
             <div className="flex flex-1 flex-col">
               {/* Name + socials row */}
@@ -65,7 +59,7 @@ export default function Home() {
 
           <div className="mt-15 mb-5 flex w-full items-center justify-between self-start">
             <span className="font-pixel text-[13px] font-normal tracking-wide text-gray-400 dark:text-gray-500">
-              /creations
+              /builds
             </span>
 
           </div>

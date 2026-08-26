@@ -26,7 +26,7 @@ export default function ThemeToggle() {
       document.documentElement.classList.toggle("dark", next);
       setIsDark(next);
     };
-    
+
     if (document.startViewTransition) {
       document.startViewTransition(commit);
     } else {
@@ -40,11 +40,11 @@ export default function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      className="relative flex h-9 w-9 items-center justify-center rounded-lg text-gray-500 dark:text-gray-400 transition-colors hover:text-[#FF5F1F] hover:bg-gray-100 dark:hover:bg-gray-800"
+      className="relative flex h-6 w-6 pr-3 pt-3 items-center justify-center rounded-lg text-gray-500 dark:text-gray-400 transition-colors hover:text-[#FF5F1F]"
     >
       <span
         key={`icon-${isDark ? "sun" : "moon"}`}
-        className="animate-icon-swap flex items-center justify-center text-gray-500 dark:text-gray-400"
+        className="animate-icon-swap flex items-center justify-center"
       >
         {isDark ? <Lightbulb className="h-4.5 w-4.5" /> : <LightbulbOff className="h-4.5 w-4.5" />}
       </span>

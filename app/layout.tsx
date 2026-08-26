@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, Geist, Geist_Mono, Geist_Pixel, Inter, Libre_Baskerville, Manrope, Onest } from "next/font/google";
 import CursorGrid from "@/components/CursorGrid";
+import ScrollProgress from "@/components/ScrollProgress";
 import "./globals.css";
 
 const inter = Inter({
@@ -48,6 +49,10 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "Ahrone Ambasan",
   description: "Full-stack developer that loves converting ideas to a usable utility.",
+  icons: {
+    icon: "/9450.png",
+    apple: "/9450.png",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -58,7 +63,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${inter.variable} ${dmSans.variable} ${onest.variable} ${geist.variable} ${geistMono.variable} ${libreBaskerville.variable} ${geistPixel.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <CursorGrid />     
+        <CursorGrid />
+        <ScrollProgress /> 
         {children}
       </body>
     </html>

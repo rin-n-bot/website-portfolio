@@ -1,21 +1,20 @@
 const techStacks = [
-  "Next.js,",
-  "TypeScript,",
-  "React,",
-  "React Native,",
-  "Expo,",
-  "Electron,",
-  "Firebase,",
-  "Supabase,",
-  "Tailwind,",
-  "Zustand,",
-  "Vercel,",
-  "Node.js,",
-  "Docker,",
-  "Vite,",
-  "Claude,",
+  "Next.js",
+  "TypeScript",
+  "React",
+  "React Native",
+  "Expo",
+  "Electron",
+  "Firebase",
+  "Supabase",
+  "Tailwind",
+  "Zustand",
+  "Vercel",
+  "Node.js",
+  "Docker",
+  "Vite",
+  "Claude",
   "Codex",
-
 ];
 
 export default function TechStacks() {
@@ -25,11 +24,11 @@ export default function TechStacks() {
         tools and frameworks i know, but can go outside it when needed.
       </h1>
 
-      <div className="flex flex-wrap items-center gap-2">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-4 gap-y-1">
         {techStacks.map((tech) => (
           <span
             key={tech}
-            className="rounded-lg bg-transparent py-1 pr-2 text-[13px] font-geist-mono font-normal text-gray-400 dark:text-gray-500 transition-colors hover:text-[#FF5F1F]"
+            className="text-[13px] font-geist-mono font-normal text-gray-400 dark:text-gray-500 transition-colors hover:text-[#FF5F1F]"
           >
             {tech}
           </span>

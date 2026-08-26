@@ -145,7 +145,7 @@ export default function About() {
                 return (
                   <div
                     key={service.title}
-                    className={`flex items-center gap-6 py-4 border-b border-gray-200 dark:border-gray-800 ${
+                    className={`flex items-center px-3 gap-6 py-4 border-b border-gray-200 dark:border-gray-800 ${
                       index === services.length - 1 ? "last:border-b-0" : ""
                     }`}
                   >
