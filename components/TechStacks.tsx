@@ -8,20 +8,18 @@ const techStacks = [
   "Firebase",
   "Supabase",
   "Tailwind",
-  "Zustand",
   "Vercel",
   "Node.js",
   "Docker",
   "Vite",
-  "Claude",
-  "Codex",
+  "n8n",
 ];
 
 export default function TechStacks() {
   return (
     <>
-      <h1 className="font-dm text-md font-normal text-gray-500 dark:text-gray-400 tracking-tight mb-6 max-w-3xl text-left">
-        tools and frameworks i know, but can go outside it when needed.
+      <h1 className="font-dm text-md font-normal text-gray-700 dark:text-gray-300 tracking-tight mb-6 max-w-3xl text-left">
+        technologies I use to build products, with room to adapt when the project requires it.
       </h1>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-4 gap-y-1">

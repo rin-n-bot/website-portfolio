@@ -7,7 +7,6 @@ type AboutTab = "services" | "experience" | "education";
 
 const tabs: { value: AboutTab; label: string }[] = [
   { value: "services", label: "services" },
-  { value: "experience", label: "experience" },
   { value: "education", label: "education" },
 ];
 
@@ -15,12 +14,12 @@ const services = [
   {
     icon: Smartphone,
     title: "Mobile App",
-    tag: "android",
+    tag: "android, ios",
   },
   {
     icon: Globe,
     title: "Website",
-    tag: "windows, mac",
+    tag: "web",
   },
   {
     icon: Laptop,
@@ -164,60 +163,46 @@ export default function About() {
             </div>
           )}
 
-          {activeTab === "experience" && (
-            <div className="flex flex-col px-3">
-              <div className="flex items-center justify-between gap-4 py-4 border-b border-gray-200 dark:border-gray-800 last:border-b-0">
-                <div className="flex-1 pr-16">
-                  <h3 className="font-dm text-[15px] font-normal text-gray-900 dark:text-gray-100">
-                    Projects
-                  </h3>
-                  <p className="mt-1 text-sm font-onest font-normal text-gray-500 dark:text-gray-400">
-                    CrossRent , SF Credit Management System
-                  </p>
-                </div>
-                <span className="shrink-0 rounded-full px-2 py-0.5 text-[13px] font-onest font-normal text-gray-400 dark:text-gray-500">
-                  present
-                </span>
-              </div>
-            </div>
-          )}
 
           {activeTab === "education" && (
-            <div className="flex flex-col px-3">
-              {/* College */}
-              <div className="flex items-center gap-6 py-4 border-b border-gray-200 dark:border-gray-800">
-                <div className="flex-1">
-                  <h3 className="font-dm text-[15px] font-normal text-gray-900 dark:text-gray-100">
-                    Holy Cross of Davao College
-                  </h3>
+            <div>
+              {/* Terminal window */}
+              <div className="rounded-lg bg-gray-50 dark:bg-[#1a1a1a] overflow-hidden">
+                {/* Title bar */}
+                <div className="flex items-center gap-2 border-b border-gray-200 dark:border-gray-800 px-4 py-2.5">
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
+                  <span className="ml-2 font-dm text-[11px] text-gray-400 dark:text-gray-500">
+                    ahrone@portfolio: ~
+                  </span>
                 </div>
-                <span className="shrink-0 font-onest text-[13px] font-normal text-gray-400 dark:text-gray-500">
-                  third year college
-                </span>
-              </div>
 
-              {/* Senior High */}
-              <div className="flex items-center gap-6 py-4 border-b border-gray-200 dark:border-gray-800">
-                <div className="flex-1">
-                  <h3 className="font-dm text-[15px] font-normal text-gray-900 dark:text-gray-100">
-                    Bernardo D. Carpio National High School
-                  </h3>
-                </div>
-                <span className="shrink-0 font-onest text-[13px] font-normal text-gray-400 dark:text-gray-500">
-                  senior high
-                </span>
-              </div>
+                {/* Terminal body */}
+                <div className="px-4 py-4 font-mono text-[13px] leading-relaxed">
+                  <p className="text-gray-500 dark:text-gray-400">
+                    <span className="text-[#FF5F1F] font-bold">ahrone@portfolio</span>
+                    <span className="text-gray-400 dark:text-gray-600">:</span>
+                    <span className="text-blue-400 dark:text-blue-300">~</span>
+                    <span className="text-gray-500 dark:text-gray-400">$</span>{" "}
+                    <span className="text-gray-900 dark:text-gray-100">cat education.txt</span>
+                  </p>
 
-              {/* College */}
-              <div className="flex items-center gap-6 py-4 last:border-b-0">
-                <div className="flex-1">
-                  <h3 className="font-dm text-[15px] font-normal text-gray-900 dark:text-gray-100">
-                    Emilio Ramos National High School
-                  </h3>
+                  <div className="mt-2 space-y-1 pl-4">
+                    <p className="text-gray-900 dark:text-gray-100">Holy Cross of Davao College</p>
+                    <p className="text-gray-500 dark:text-gray-400">BS Information Technology · 3rd Year</p>
+                    <p className="text-xs text-gray-400 dark:text-gray-500">2024 — Present</p>
+                  </div>
+
+                  {/* Blinking cursor line */}
+                  <p className="mt-2 text-gray-500 dark:text-gray-400">
+                    <span className="text-[#FF5F1F] font-bold">ahrone@portfolio</span>
+                    <span className="text-gray-400 dark:text-gray-600">:</span>
+                    <span className="text-blue-400 dark:text-blue-300">~</span>
+                    <span className="text-gray-500 dark:text-gray-400">$</span>{" "}
+                    <span className="inline-block w-1.5 h-3 bg-gray-300 dark:bg-gray-700 animate-blink" />
+                  </p>
                 </div>
-                <span className="shrink-0 font-onest text-[13px] font-normal text-gray-400 dark:text-gray-500">
-                  junior high
-                </span>
               </div>
             </div>
           )}
