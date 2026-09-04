@@ -28,7 +28,7 @@ function PlusMinusIcon({ open }: { open: boolean }) {
       viewBox="0 0 16 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="text-gray-400 shrink-0"
+      className="text-zinc-400 shrink-0"
     >
       {/* Horizontal line (always visible) */}
       <path
@@ -155,7 +155,7 @@ export default function Projects() {
     <>
       <div className="flex w-full flex-col gap-4">
         {/* Project list rows */}
-        <div className="flex flex-col border-b border-gray-200 dark:border-gray-800">
+        <div className="flex flex-col border-b border-zinc-200 dark:border-zinc-800">
           {projects.map((project) => {
             const isActive = project.id === activeId;
             const isExpanded = isActive && isOpen;
@@ -164,7 +164,7 @@ export default function Projects() {
                 key={project.id}
                 type="button"
                 onClick={() => handleRowClick(project.id)}
-                className="flex items-center justify-between gap-4 px-3 py-4 border-b border-gray-200 dark:border-gray-800 last:border-b-0 text-left transition-colors hover:bg-gray-50 dark:hover:bg-gray-900"
+                className="flex items-center justify-between gap-4 px-3 py-4 border-b border-zinc-200 dark:border-zinc-800 last:border-b-0 text-left transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-900"
               >
                 <div className="flex items-center gap-3">
                   <Image
@@ -174,7 +174,7 @@ export default function Projects() {
                     height={24}
                     className="h-6 w-6 object-contain"
                   />
-                  <span className="font-dm text-[15px] font-normal text-gray-900 dark:text-gray-100">
+                  <span className="font-mono text-[15px] font-normal tracking-tight text-zinc-900 dark:text-zinc-100">
                     {project.label}
                   </span>
                 </div>
@@ -189,7 +189,7 @@ export default function Projects() {
           <div key={activeId} className="animate-fade-in-up w-full">
             {isCrossRent ? (
               <div className="flex w-full max-w-3xl flex-col items-start gap-4">
-                <div ref={scrollRef} className="w-full overflow-x-auto pb-2">
+                <div ref={scrollRef} data-lenis-prevent className="w-full overflow-x-auto pb-2">
                   <div className="flex w-max items-start mx-4 gap-24">
                     {crossRentScreens.map((screen, index) => (
                       <div

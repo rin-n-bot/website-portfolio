@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { LightbulbOff, Lightbulb } from "lucide-react";
+import { Sun, Moon } from "lucide-react";
 
 
 export default function ThemeToggle() {
@@ -46,7 +46,7 @@ export default function ThemeToggle() {
         key={`icon-${isDark ? "sun" : "moon"}`}
         className="animate-icon-swap flex items-center justify-center"
       >
-        {isDark ? <Lightbulb className="h-4.5 w-4.5" /> : <LightbulbOff className="h-4.5 w-4.5" />}
+        {isDark ? <Sun className="h-4.5 w-4.5" /> : <Moon className="h-4.5 w-4.5" />}
       </span>
     </button>
   );

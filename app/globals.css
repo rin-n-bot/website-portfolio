@@ -6,7 +6,7 @@
 
 
 :root {
-  --background: #ffffff;
+  --background: #f8fafc;
   --foreground: #171717;
 }
 
@@ -134,28 +134,19 @@ html {
 }
 
 
-/* About tab dropdown open animation (moved from About.tsx) */
-@keyframes dropdown {
-  from {
-    opacity: 0;
-    transform: translateY(-6px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+/* Lenis smooth-scroll required styles (https://lenis.darkroom.engineering/) */
+html.lenis,
+html.lenis body {
+  height: auto;
 }
 
-.animate-dropdown {
-  animation: dropdown 0.18s ease-out forwards;
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .animate-dropdown {
-    animation: none;
-  }
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
-
 
 /* Circle wipe from the center of the viewport (or from button position) */
 ::view-transition-old(root),

@@ -108,7 +108,7 @@ export default function CursorGrid() {
   }, []);
 
   return (
-    <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-white transition-colors duration-200 dark:bg-[#0a0a0a]">
+    <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-[#f8fafc] transition-colors duration-200 dark:bg-[#0a0a0a]">
       {/* Base dots */}
       <div
         className="absolute inset-0"

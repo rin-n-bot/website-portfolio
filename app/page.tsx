@@ -1,10 +1,9 @@
-import About, { AboutProvider, AboutTabDropdown } from "@/components/About";
 import Projects from "@/components/Projects";
 import TechStacks from "@/components/TechStacks";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ThemeToggle from "@/components/ThemeToggle";
-import AvatarFlip from "@/components/AvatarFlip";
+import HeroText from "@/components/HeroText";
 
 function VerifiedBadge({ className }: { className?: string }) {
   return (
@@ -27,88 +26,62 @@ function VerifiedBadge({ className }: { className?: string }) {
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center px-6 pb-10 pt-5 text-gray-900 dark:text-gray-100">
-      <main className="flex w-full max-w-lg flex-col items-center gap-6">
-        
+    <div className="flex min-h-screen flex-col items-center justify-center px-6 pb-12 pt-14 text-gray-900 dark:text-gray-100">
+      <main className="flex w-full max-w-xl flex-col items-center gap-3">
+
         {/* Hero – left aligned via self-start */}
-        <div className="flex w-full flex-col items-start gap-0 mt-10 self-start text-left">
+        <div className="flex w-full flex-col items-start gap-0 mt-10 mb-8 self-start text-left">
           {/* Avatar + name/role side by side */}
           <div className="flex w-full items-start gap-4">
-            <AvatarFlip />
 
             <div className="flex flex-1 flex-col">
               {/* Name + socials row */}
-              <div className="flex items-center justify-between gap-4 w-full">
-                <h2 className="font-dm text-[15px] font-normal tracking-tight text-gray-900 dark:text-gray-100 flex items-center gap-1">
-                  @ahroneambasan
+              <div className="flex items-center justify-between gap-4 mb-6 w-full">
+                <h2 className="font-mono text-md font-normal tracking-tight text-zinc-900 dark:text-zinc-100 flex items-center gap-1">
+                  Ahrone Ambasan
                   <VerifiedBadge className="h-4 w-4 shrink-0" />
                 </h2>
                 <ThemeToggle />
               </div>
 
-              {/* Role row */}
-              <div className="flex items-center gap-1.5 mt-0">
-                <p className="font-onest text-[13px] tracking-tight font-normal text-gray-400 dark:text-gray-500">
-                  Software Developer
-                </p>
-              </div>
             </div>
           </div>
 
-          {/* Description below */}
-          <h1 className="font-dm text-md sm:text-md font-normal tracking-tight text-gray-700 dark:text-gray-300 mt-6 mb-0">
-            building apps, websites, softwares, & automations that solves<br/>business problems.
-          </h1>
+          {/* Description below — includes read-more toggle for education */}
+          <HeroText />
         </div>
 
-        <AboutProvider>
-          <div className="mt-10 mb-0 flex w-full items-center justify-between self-start">
-            <span className="font-pixel text-[13px] font-normal tracking-wide text-gray-400 dark:text-gray-500">
-              /overview
-            </span>
-            <AboutTabDropdown />
-          </div>
-
-          {/* About – centered as a block, text centered too */}
-          <section id="about" className="w-full max-w-3xl mt-0 text-center">
-            <About />
-          </section>
-        </AboutProvider>
-
-
-          <div className="mt-10 mb-0 flex w-full items-center justify-between self-start">
-            <span className="font-pixel text-[13px] font-normal tracking-wide text-gray-400 dark:text-gray-500">
-              /builds
-            </span>
-
-          </div>
-
-          {/* Projects – centered */}
-          <section id="projects" className="w-full">
-            <Projects />
-          </section>
-
-
+        {/* /builds label */}
         <span className="font-pixel text-[13px] font-normal tracking-wide text-gray-400 dark:text-gray-500 self-start mt-15 mb-0">
-          /skills
+          /Builds
+        </span>
+
+        {/* Projects – centered */}
+        <section id="projects" className="w-full mt-5">
+          <Projects />
+        </section>
+
+        {/* /skills label */}
+        <span className="font-pixel text-[13px] font-normal tracking-wide text-gray-400 dark:text-gray-500 self-start mt-20 mb-0">
+          /Skills
         </span>
 
         {/* Tech Stacks – centered */}
-        <section id="tech-stacks" className="w-full">
+        <section id="tech-stacks" className="w-full mt-5">
           <TechStacks />
         </section>
 
-        <span className="font-pixel text-[13px] font-normal tracking-wide text-gray-400 dark:text-gray-500 self-start mt-15 mb-0">
-          /collaborate
+        {/* /collaborate label */}
+        <span className="font-pixel text-[13px] font-normal tracking-wide text-gray-400 dark:text-gray-500 self-start mt-20 mb-0">
+          /Collaborate
         </span>
 
         {/* Contact – centered */}
-        <section id="contact" className="w-full mb-15">
+        <section id="contact" className="w-full mb-20 mt-5">
           <Contact />
         </section>
         <Footer />
       </main>
-
     </div>
   );
 }

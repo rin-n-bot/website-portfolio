@@ -27,30 +27,30 @@ export default function Footer() {
       {/* Mobile layout (below sm breakpoint) */}
       <div className="flex justify-between sm:hidden">
         <div className="flex flex-col">
-          <span className="font-pixel text-[13px] font-normal italic tracking-tight text-gray-400 dark:text-gray-500">
+          <span className="font-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500">
             {time}
           </span>
-          <span className="font-pixel text-[13px] font-normal italic tracking-wide text-gray-400 dark:text-gray-500">
-            in davao, ph
+          <span className="font-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500">
+            in Davao, Philippines
           </span>
         </div>
         <div className="flex flex-col items-end">
-          <span className="font-pixel text-[13px] font-normal italic tracking-wide text-gray-400 dark:text-gray-500">
+          <span className="font-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500">
             © {year}
           </span>
-          <span className="font-pixel text-[13px] font-normal italic tracking-tight text-gray-400 dark:text-gray-500">
-            Ahrone Ambasan
+          <span className="font-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500">
+            Third Year
           </span>
         </div>
       </div>
 
       {/* Desktop layout (sm and up) */}
       <div className="hidden sm:flex items-center justify-between">
-        <span className="font-pixel text-[13px] font-normal italic tracking-tight text-gray-400 dark:text-gray-500 whitespace-nowrap">
-          {time} in davao, philippines
+        <span className="font-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500 whitespace-nowrap">
+          {time} in Davao, Philippines
         </span>
-        <span className="font-pixel text-[13px] font-normal italic tracking-wide text-gray-400 dark:text-gray-500 whitespace-nowrap">
-          © {year} Ahrone Ambasan
+        <span className="font-mono text-[13px] font-normal tracking-wide text-gray-400 dark:text-gray-500 whitespace-nowrap">
+          © {year} Third Year
         </span>
       </div>
     </footer>
