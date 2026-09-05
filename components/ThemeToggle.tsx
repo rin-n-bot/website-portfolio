@@ -40,7 +40,7 @@ export default function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-      className="relative flex h-6 w-6 pr-3 pt-3 items-center justify-center rounded-lg text-gray-500 dark:text-gray-400 transition-colors hover:text-[#FF5F1F]"
+      className="relative flex h-6 w-6 pr-3 pt-0 items-center justify-center rounded-lg text-gray-500 dark:text-gray-400 transition-colors hover:text-[#FF5F1F]"
     >
       <span
         key={`icon-${isDark ? "sun" : "moon"}`}

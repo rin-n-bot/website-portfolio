@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { DM_Sans, Geist, Geist_Mono, Geist_Pixel, Inter, Libre_Baskerville, Manrope, Onest } from "next/font/google";
-import CursorGrid from "@/components/CursorGrid";
 import ScrollProgress from "@/components/ScrollProgress";
 import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";

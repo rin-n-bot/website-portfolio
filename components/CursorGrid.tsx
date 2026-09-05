@@ -5,36 +5,50 @@ import { useEffect, useRef, useState } from "react";
 const CELL = 24;
 const DOT_LIGHT = "rgba(0,0,0,0.03)";
 const DOT_DARK = "rgba(255,255,255,0.03)";
-const SYMBOL_LIGHT = "rgba(0,0,0,0.35)"; 
-const SYMBOL_DARK = "rgba(255,255,255,0.35)";
+const SYMBOL_LIGHT = "0,0,0";
+const SYMBOL_DARK = "255,255,255";
+const SYMBOL_OPACITY = 0.35;
+const SYMBOL_SPACING = 18;
 const MASK_RADIUS = 150;
 const LAG_FACTOR = 0.12;
 const INACTIVE_TIMEOUT = 1000;
+const MIN_VISIBLE_MS = 400;
+const MAX_VISIBLE_MS = 2200;
+const MIN_HIDDEN_MS = 300;
+const MAX_HIDDEN_MS = 1800;
+const FADE_MS = 400;
+const MAX_STAGGER_MS = 2200;
+const VISIBLE_RATIO = 0.3;
 
-function buildSymbolTile(isDark: boolean): string {
-  const color = isDark ? SYMBOL_DARK : SYMBOL_LIGHT;
-  return `data:image/svg+xml,${encodeURIComponent(
-    `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">
-       <path d="M6 9h6" stroke="${color}" stroke-width="1.2" stroke-linecap="round" />
-     </svg>`
-  )}`;
-}
-
-// Read the current `.dark` state during render (client only), matching
-// ThemeToggle's approach so the dots/symbols start in the right theme.
 function getInitialDark(): boolean {
   if (typeof document === "undefined") return false;
   return document.documentElement.classList.contains("dark");
 }
 
+function randomBetween(min: number, max: number) {
+  return min + Math.random() * (max - min);
+}
+
+interface SymbolState {
+  visible: boolean;
+  nextToggleAt: number;
+  fadeStartAt: number | null;
+  fadeDirection: "in" | "out" | null;
+  fadeStartOpacity: number;  // opacity at the beginning of the fade
+  eligible: boolean;
+}
+
 export default function CursorGrid() {
   const overlayRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const symbolsRef = useRef<SymbolState[][]>([]);
   const [active, setActive] = useState(false);
+  const wasActiveRef = useRef(false);
+  const prevActiveRef = useRef(false);
+  const hasHoveredOnceRef = useRef(false);
   const [isDark, setIsDark] = useState<boolean>(getInitialDark);
   const timeoutRef = useRef<number | null>(null);
 
-  // Subscribe to `.dark` class changes. setState only happens inside the
-  // observer callback (a subscription), not synchronously in the effect body.
   useEffect(() => {
     const root = document.documentElement;
     const observer = new MutationObserver(() => {
@@ -44,8 +58,191 @@ export default function CursorGrid() {
     return () => observer.disconnect();
   }, []);
 
-  const symbolTile = buildSymbolTile(isDark);
   const dotColor = isDark ? DOT_DARK : DOT_LIGHT;
+  const symbolRgb = isDark ? SYMBOL_DARK : SYMBOL_LIGHT;
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    let raf = 0;
+
+    const makeSymbol = (now: number): SymbolState => {
+      const eligible = Math.random() < VISIBLE_RATIO;
+      return {
+        visible: false,
+        nextToggleAt: now + randomBetween(MIN_HIDDEN_MS, MAX_HIDDEN_MS),
+        fadeStartAt: null,
+        fadeDirection: null,
+        fadeStartOpacity: 0,
+        eligible,
+      };
+    };
+
+    const resize = () => {
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${window.innerHeight}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      const cols = Math.ceil(window.innerWidth / SYMBOL_SPACING) + 1;
+      const rows = Math.ceil(window.innerHeight / SYMBOL_SPACING) + 1;
+      const now = performance.now();
+
+      symbolsRef.current = Array.from({ length: rows }, () =>
+        Array.from({ length: cols }, () => makeSymbol(now))
+      );
+    };
+
+    resize();
+    window.addEventListener("resize", resize);
+
+    // Helper to compute the current opacity of a symbol based on its transition
+    const getCurrentOpacity = (sym: SymbolState, time: number): number => {
+      if (sym.fadeDirection && sym.fadeStartAt !== null) {
+        const elapsed = time - sym.fadeStartAt;
+        if (elapsed < 0) {
+          // The fade hasn't started yet (delayed start)
+          return sym.fadeDirection === "in" ? sym.fadeStartOpacity : sym.fadeStartOpacity;
+        }
+        const progress = Math.min(elapsed / FADE_MS, 1);
+        if (sym.fadeDirection === "in") {
+          return sym.fadeStartOpacity + (SYMBOL_OPACITY - sym.fadeStartOpacity) * progress;
+        } else {
+          return sym.fadeStartOpacity * (1 - progress);
+        }
+      }
+      return sym.visible ? SYMBOL_OPACITY : 0;
+    };
+
+    const draw = (time: number) => {
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+      const isActive = wasActiveRef.current;
+      const justBecameActive = isActive && !prevActiveRef.current;
+      const justBecameInactive = !isActive && prevActiveRef.current;
+      prevActiveRef.current = isActive;
+
+      if (isActive) hasHoveredOnceRef.current = true;
+
+      ctx.lineWidth = 1.2;
+      ctx.lineCap = "round";
+
+      for (let row = 0; row < symbolsRef.current.length; row++) {
+        const line = symbolsRef.current[row];
+        for (let col = 0; col < line.length; col++) {
+          const sym = line[col];
+
+          if (!hasHoveredOnceRef.current) continue;
+
+          // ----- Transition triggers -----
+          if (justBecameActive) {
+            if (sym.eligible) {
+              // Case 1: Symbol is currently fading out → reverse to fade-in
+              if (sym.visible && sym.fadeDirection === "out") {
+                const currentOpacity = getCurrentOpacity(sym, time);
+                sym.fadeDirection = "in";
+                sym.fadeStartAt = time;
+                sym.fadeStartOpacity = currentOpacity;
+                // Push nextToggleAt far enough to avoid immediate toggling
+                sym.nextToggleAt =
+                  time + FADE_MS + randomBetween(MIN_VISIBLE_MS, MAX_VISIBLE_MS);
+              }
+              // Case 2: Symbol is invisible or at full visibility (not fading) → fade in from 0
+              else if (!sym.visible || sym.fadeDirection === null) {
+                sym.visible = true;
+                sym.fadeDirection = "in";
+                const entryDelay = randomBetween(0, MAX_STAGGER_MS);
+                sym.fadeStartAt = time + entryDelay;
+                sym.fadeStartOpacity = 0;
+                sym.nextToggleAt =
+                  time + entryDelay + FADE_MS + randomBetween(MIN_VISIBLE_MS, MAX_VISIBLE_MS);
+              }
+            }
+          } else if (justBecameInactive) {
+            // If the symbol is visible (or mid-fade-in), start a fade-out from its current opacity
+            if (sym.visible) {
+              const currentOpacity = getCurrentOpacity(sym, time);
+              sym.fadeDirection = "out";
+              sym.fadeStartAt = time + randomBetween(0, MAX_STAGGER_MS);
+              sym.fadeStartOpacity = currentOpacity;
+            }
+          }
+
+          // ----- Normal active toggling (only after the initial activation) -----
+          if (isActive && !justBecameActive && sym.eligible && time >= sym.nextToggleAt) {
+            sym.visible = !sym.visible;
+            const duration = sym.visible
+              ? randomBetween(MIN_VISIBLE_MS, MAX_VISIBLE_MS)
+              : randomBetween(MIN_HIDDEN_MS, MAX_HIDDEN_MS);
+            sym.nextToggleAt = time + duration;
+            sym.fadeDirection = sym.visible ? "in" : "out";
+            sym.fadeStartAt = time;
+            sym.fadeStartOpacity = sym.visible ? 0 : SYMBOL_OPACITY;
+          }
+
+          // ----- Opacity calculation and completion cleanup -----
+          let opacity = 0;
+          if (sym.fadeDirection && sym.fadeStartAt !== null) {
+            const elapsed = time - sym.fadeStartAt;
+            if (elapsed < 0) {
+              // Not started yet – keep base opacity
+              opacity = sym.fadeStartOpacity;
+            } else {
+              const progress = Math.min(elapsed / FADE_MS, 1);
+              if (sym.fadeDirection === "in") {
+                opacity = sym.fadeStartOpacity + (SYMBOL_OPACITY - sym.fadeStartOpacity) * progress;
+                if (progress >= 1) {
+                  sym.fadeDirection = null;
+                  sym.fadeStartAt = null;
+                  sym.visible = true;
+                  opacity = SYMBOL_OPACITY;
+                }
+              } else {
+                opacity = sym.fadeStartOpacity * (1 - progress);
+                if (progress >= 1) {
+                  sym.fadeDirection = null;
+                  sym.fadeStartAt = null;
+                  sym.visible = false;
+                  opacity = 0;
+                }
+              }
+            }
+          } else {
+            opacity = sym.visible ? SYMBOL_OPACITY : 0;
+          }
+
+          if (opacity <= 0.01) continue;
+
+          const x = col * SYMBOL_SPACING;
+          const y = row * SYMBOL_SPACING;
+
+          ctx.strokeStyle = `rgba(${symbolRgb},${opacity})`;
+          ctx.beginPath();
+          ctx.moveTo(x, y);
+          ctx.lineTo(x + 6, y);
+          ctx.stroke();
+        }
+      }
+
+      raf = requestAnimationFrame(draw);
+    };
+
+    raf = requestAnimationFrame(draw);
+
+    return () => {
+      window.removeEventListener("resize", resize);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, [symbolRgb]);
+
+  useEffect(() => {
+    wasActiveRef.current = active;
+  }, [active]);
 
   useEffect(() => {
     const el = overlayRef.current;
@@ -109,7 +306,6 @@ export default function CursorGrid() {
 
   return (
     <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-[#f8fafc] transition-colors duration-200 dark:bg-[#0a0a0a]">
-      {/* Base dots */}
       <div
         className="absolute inset-0"
         style={{
@@ -118,24 +314,20 @@ export default function CursorGrid() {
         }}
       />
 
-      {/* Overlay symbols – minuses spaced 18px apart */}
       <div
         ref={overlayRef}
-        className="absolute inset-0 transition-opacity duration-300"
+        className="absolute inset-0"
         style={
           {
             "--cursor-x": "50vw",
             "--cursor-y": "50vh",
-            opacity: active ? 1 : 0,
-            transitionDelay: active ? "150ms" : "0ms",
-            backgroundImage: `url("${symbolTile}")`,
-            backgroundSize: "18px 18px",
-            backgroundRepeat: "repeat",
             maskImage: `radial-gradient(circle ${MASK_RADIUS}px at var(--cursor-x) var(--cursor-y), black 0%, transparent 100%)`,
             WebkitMaskImage: `radial-gradient(circle ${MASK_RADIUS}px at var(--cursor-x) var(--cursor-y), black 0%, transparent 100%)`,
           } as React.CSSProperties
         }
-      />
+      >
+        <canvas ref={canvasRef} className="h-full w-full" />
+      </div>
     </div>
   );
 }

@@ -9,7 +9,7 @@ const contact = {
     { name: "X", href: "https://x.com" },
     { name: "GitHub", href: "https://github.com" },
     { name: "Instagram", href: "https://www.instagram.com" },
-    { name: "Facebook", href: "https://www.facebook.com" },
+    { name: "LinkedIn", href: "https://www.linkedin.com" },
   ],
 };
 
@@ -54,7 +54,7 @@ export default function Contact() {
           <a
             href={gmailComposeUrl}
             onClick={openGmailCompose}
-            className="text-blue-500 dark:text-blue-400 text-[15px] font-mono underline underline-offset-2 transition-colors hover:text-[#FF5F1F]"
+            className="text-blue-500 dark:text-blue-400 text-[15px] font-mono underline tracking-tight underline-offset-2 transition-colors hover:text-[#FF5F1F]"
           >
             {contact.email}
           </a>.

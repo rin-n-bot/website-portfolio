@@ -23,7 +23,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="w-full pt-0 pb-5">
+    <footer className="w-full pt-5 pb-5">
       {/* Mobile layout (below sm breakpoint) */}
       <div className="flex justify-between sm:hidden">
         <div className="flex flex-col">
@@ -38,9 +38,6 @@ export default function Footer() {
           <span className="font-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500">
             © {year}
           </span>
-          <span className="font-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500">
-            Third Year
-          </span>
         </div>
       </div>
 
@@ -50,7 +47,7 @@ export default function Footer() {
           {time} in Davao, Philippines
         </span>
         <span className="font-mono text-[13px] font-normal tracking-wide text-gray-400 dark:text-gray-500 whitespace-nowrap">
-          © {year} Third Year
+          © {year}
         </span>
       </div>
     </footer>

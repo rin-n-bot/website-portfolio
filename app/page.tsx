@@ -52,8 +52,8 @@ export default function Home() {
         </div>
 
         {/* /builds label */}
-        <span className="font-pixel text-[13px] font-normal tracking-wide text-gray-400 dark:text-gray-500 self-start mt-15 mb-0">
-          /Builds
+        <span className="font-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500 self-start mt-15 mb-0">
+          /BUILD
         </span>
 
         {/* Projects – centered */}
@@ -62,8 +62,8 @@ export default function Home() {
         </section>
 
         {/* /skills label */}
-        <span className="font-pixel text-[13px] font-normal tracking-wide text-gray-400 dark:text-gray-500 self-start mt-20 mb-0">
-          /Skills
+        <span className="font-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500 self-start mt-20 mb-0">
+          /SKILLS
         </span>
 
         {/* Tech Stacks – centered */}
@@ -72,8 +72,8 @@ export default function Home() {
         </section>
 
         {/* /collaborate label */}
-        <span className="font-pixel text-[13px] font-normal tracking-wide text-gray-400 dark:text-gray-500 self-start mt-20 mb-0">
-          /Collaborate
+        <span className="font-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500 self-start mt-20 mb-0">
+          /COLLAB
         </span>
 
         {/* Contact – centered */}
