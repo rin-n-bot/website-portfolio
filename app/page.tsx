@@ -51,37 +51,34 @@ export default function Home() {
           <HeroText />
         </div>
 
-        {/* subtle divider */}
-        <div className="w-full border-t border-zinc-200 dark:border-zinc-800 mt-10" />
-
 
         {/* /builds label */}
-        <span className="font-geist-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500 self-start mt-15 mb-0">
-          BUILD
+        <span className="font-geist-mono text-xs font-medium tracking-tight text-gray-400 dark:text-gray-500 self-start mt-5 mb-0">
+          Build
         </span>
 
         {/* Projects – centered */}
-        <section id="projects" className="w-full mt-5">
+        <section id="projects" className="w-full">
           <Projects />
         </section>
 
         {/* /skills label */}
-        <span className="font-geist-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500 self-start mt-20 mb-0">
-          SKILLS
+        <span className="font-geist-mono text-xs font-medium tracking-tight text-gray-400 dark:text-gray-500 self-start mt-15 mb-0">
+          Skills
         </span>
 
         {/* Tech Stacks – centered */}
-        <section id="tech-stacks" className="w-full mt-5">
+        <section id="tech-stacks" className="w-full">
           <TechStacks />
         </section>
 
         {/* /collaborate label */}
-        <span className="font-geist-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500 self-start mt-20 mb-0">
-          COLLAB
+        <span className="font-geist-mono text-xs font-medium tracking-tight text-gray-400 dark:text-gray-500 self-start mt-15 mb-0">
+          Collaborate
         </span>
 
         {/* Contact – centered */}
-        <section id="contact" className="w-full mb-20 mt-5">
+        <section id="contact" className="w-full mb-5">
           <Contact />
         </section>
 

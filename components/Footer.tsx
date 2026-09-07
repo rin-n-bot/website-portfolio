@@ -23,31 +23,31 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="w-full pt-5 pb-5">
+    <footer className="w-full pt-2 pb-5">
       {/* Mobile layout (below sm breakpoint) */}
       <div className="flex justify-between sm:hidden">
         <div className="flex flex-col">
-          <span className="font-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500">
+          <span className="font-mono text-[13px] font-medium tracking-tight text-gray-400 dark:text-gray-500">
             {time}
           </span>
-          <span className="font-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500">
+          <span className="font-mono text-[13px] font-medium tracking-tight text-gray-400 dark:text-gray-500">
             in Davao, Philippines
           </span>
         </div>
         <div className="flex flex-col items-end">
-          <span className="font-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500">
-            © {year}
+          <span className="font-mono text-[13px] font-medium tracking-tight text-gray-400 dark:text-gray-500">
+            © {year} na buseng
           </span>
         </div>
       </div>
 
       {/* Desktop layout (sm and up) */}
       <div className="hidden sm:flex items-center justify-between">
-        <span className="font-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500 whitespace-nowrap">
+        <span className="font-mono text-[13px] font-medium tracking-tight text-gray-400 dark:text-gray-500 whitespace-nowrap">
           {time} in Davao, Philippines
         </span>
-        <span className="font-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500 whitespace-nowrap">
-          © {year}
+        <span className="font-mono text-[13px] font-medium tracking-tight text-gray-400 dark:text-gray-500 whitespace-nowrap">
+          © {year} na buseng
         </span>
       </div>
     </footer>
