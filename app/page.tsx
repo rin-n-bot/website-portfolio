@@ -37,7 +37,7 @@ export default function Home() {
             <div className="flex flex-1 flex-col">
               {/* Name + socials row */}
               <div className="flex items-center justify-between gap-4 mb-6 w-full">
-                <h2 className="font-geist-mono text-[15px] font-medium tracking-tight text-zinc-900 dark:text-zinc-100 flex items-center gap-1">
+                <h2 className="font-mono text-[15px] font-medium tracking-tight text-zinc-900 dark:text-zinc-100 flex items-center gap-1">
                   Ahrone Ambasan
                   <VerifiedBadge className="h-4 w-4 shrink-0" />
                 </h2>

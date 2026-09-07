@@ -174,7 +174,7 @@ export default function Projects() {
                     height={24}
                     className="h-6 w-6 object-contain"
                   />
-                  <span className="font-geist-mono text-sm font-medium tracking-tight text-zinc-900 dark:text-zinc-100">
+                  <span className="font-mono text-sm font-medium tracking-tight text-zinc-900 dark:text-zinc-100">
                     {project.label}
                   </span>
                 </div>

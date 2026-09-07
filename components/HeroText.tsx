@@ -29,7 +29,7 @@ function SocialChip({ name, href, icon }: SocialLink) {
 
 export default function HeroText() {
   return (
-    <div className="mt-6 font-geist-mono text-sm font-normal tracking-tight text-zinc-700 dark:text-zinc-300">
+    <div className="mt-6 font-mono text-sm font-normal tracking-tight text-zinc-900 dark:text-zinc-100">
       <p>
         I&apos;m a Software Dev & Designer in Davao, Philippines, and I like
         exploring and building things people can actually use.
