@@ -86,6 +86,24 @@ html {
   animation: fade-in 250ms ease-out;
 }
 
+/* Entry animation with a delay; `backwards` keeps sections invisible
+   until their delay elapses so they stagger in top to bottom. */
+.animate-fade-in-staggered {
+  animation: fade-in 250ms ease-out backwards;
+}
+.fade-delay-1 { animation-delay: 0ms; }
+.fade-delay-2 { animation-delay: 100ms; }
+.fade-delay-3 { animation-delay: 200ms; }
+.fade-delay-4 { animation-delay: 300ms; }
+.fade-delay-5 { animation-delay: 400ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-fade-in-staggered {
+    animation: none;
+  }
+}
+
 
 /* Theme toggle icon swap */
 @keyframes icon-swap {

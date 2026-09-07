@@ -30,7 +30,7 @@ export default function Home() {
       <main className="flex w-full max-w-lg flex-col items-center gap-3">
 
         {/* Hero – left aligned via self-start */}
-        <div className="flex w-full flex-col items-start gap-0 mt-10 mb-8 self-start text-left">
+        <div className="animate-fade-in-staggered flex w-full flex-col items-start gap-0 mt-10 mb-8 self-start text-left">
           {/* Avatar + name/role side by side */}
           <div className="flex w-full items-start gap-4">
 
@@ -53,39 +53,41 @@ export default function Home() {
 
 
         {/* /builds label */}
-        <span className="font-geist-mono text-xs font-medium tracking-tight text-gray-400 dark:text-gray-500 self-start mt-5 mb-0">
-          Build
+        <span className="animate-fade-in-staggered fade-delay-2 font-geist-mono text-xs font-medium tracking-tight text-gray-400 dark:text-gray-500 self-start mt-5 mb-0">
+          Builds
         </span>
 
         {/* Projects – centered */}
-        <section id="projects" className="w-full">
+        <section id="projects" className="animate-fade-in-staggered fade-delay-2 w-full">
           <Projects />
         </section>
 
         {/* /skills label */}
-        <span className="font-geist-mono text-xs font-medium tracking-tight text-gray-400 dark:text-gray-500 self-start mt-15 mb-0">
+        <span className="animate-fade-in-staggered fade-delay-3 font-geist-mono text-xs font-medium tracking-tight text-gray-400 dark:text-gray-500 self-start mt-15 mb-0">
           Skills
         </span>
 
         {/* Tech Stacks – centered */}
-        <section id="tech-stacks" className="w-full">
+        <section id="tech-stacks" className="animate-fade-in-staggered fade-delay-3 w-full">
           <TechStacks />
         </section>
 
         {/* /collaborate label */}
-        <span className="font-geist-mono text-xs font-medium tracking-tight text-gray-400 dark:text-gray-500 self-start mt-15 mb-0">
+        <span className="animate-fade-in-staggered fade-delay-4 font-geist-mono text-xs font-medium tracking-tight text-gray-400 dark:text-gray-500 self-start mt-15 mb-0">
           Collaborate
         </span>
 
         {/* Contact – centered */}
-        <section id="contact" className="w-full mb-5">
+        <section id="contact" className="animate-fade-in-staggered fade-delay-4 w-full mb-5">
           <Contact />
         </section>
 
         {/* subtle divider */}
-        <div className="w-full border-t border-zinc-200 dark:border-zinc-800 mt-5" />
-        
-        <Footer />
+        <div className="animate-fade-in-staggered fade-delay-5 w-full border-t border-zinc-200 dark:border-zinc-800 mt-5" />
+
+        <div className="animate-fade-in-staggered fade-delay-5 w-full">
+          <Footer />
+        </div>
       </main>
     </div>
   );

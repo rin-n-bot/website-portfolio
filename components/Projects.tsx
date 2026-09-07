@@ -2,15 +2,33 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { X, ChevronLeft, ChevronRight as NextChevron } from "lucide-react";
+import { X, ChevronLeft, ChevronRight as NextChevron, ArrowUpRight } from "lucide-react";
 import LaptopFrame from "./LaptopFrame";
 import MobileFrame from "./MobileFrame";
 
-type ProjectId = "sf-credit" | "crossrent";
+type ProjectId = "sf-credit" | "crossrent" | "world-chess";
+type ProjectType = "Mobile App" | "Website" | "Software";
 
-const projects: { id: ProjectId; label: string; icon: string }[] = [
-  { id: "sf-credit", label: "SF Credit Management System", icon: "/sf_icon.png" },
-  { id: "crossrent", label: "CrossRent", icon: "/cross rent icon.png" },
+const projects: {
+  id: ProjectId;
+  label: string;
+  icon: string;
+  type: ProjectType;
+  /** Set for projects that are external links instead of expandable previews. */
+  href?: string;
+  /** Transparent icons get a framed container at the same 24px footprint. */
+  framedIcon?: boolean;
+}[] = [
+  { id: "sf-credit", label: "SF Credit Management System", icon: "/sf_icon.png", type: "Software" },
+  { id: "crossrent", label: "CrossRent", icon: "/cross rent icon.png", type: "Mobile App" },
+  {
+    id: "world-chess",
+    label: "World Chess Leaderboard",
+    icon: "/podium icon.png",
+    type: "Website",
+    href: "https://worldchessldb.vercel.app",
+    framedIcon: true,
+  },
 ];
 
 const crossRentScreens = [
@@ -18,40 +36,6 @@ const crossRentScreens = [
   { src: "/cross rent msg.png", alt: "CrossRent messages" },
   { src: "/cross rent transc.png", alt: "CrossRent transactions" },
 ];
-
-// Rotating plus/minus icon
-function PlusMinusIcon({ open }: { open: boolean }) {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 16 16"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="text-zinc-400 shrink-0"
-    >
-      {/* Horizontal line (always visible) */}
-      <path
-        d="M3 8H13"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-      {/* Vertical line – rotates 90deg to become horizontal (minus) */}
-      <path
-        d="M8 3V13"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        style={{
-          transition: "transform 0.3s ease",
-          transform: open ? "rotate(90deg)" : "rotate(0deg)",
-          transformOrigin: "center",
-        }}
-      />
-    </svg>
-  );
-}
 
 export default function Projects() {
   const [activeId, setActiveId] = useState<ProjectId>("sf-credit");
@@ -155,30 +139,66 @@ export default function Projects() {
     <>
       <div className="flex w-full flex-col gap-4">
         {/* Project list rows */}
-        <div className="flex flex-col border-b border-zinc-200 dark:border-zinc-800">
+        <div className="flex flex-col">
           {projects.map((project) => {
-            const isActive = project.id === activeId;
-            const isExpanded = isActive && isOpen;
+            const rowInner = (
+              <>
+                <div className="flex items-center gap-3">
+                  {project.framedIcon ? (
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-zinc-100 dark:bg-zinc-800">
+                      <Image
+                        src={project.icon}
+                        alt={`${project.label} icon`}
+                        width={20}
+                        height={20}
+                        className="h-6 w-6 object-contain"
+                      />
+                    </span>
+                  ) : (
+                    <Image
+                      src={project.icon}
+                      alt={`${project.label} icon`}
+                      width={24}
+                      height={24}
+                      className="h-6 w-6 object-contain"
+                    />
+                  )}
+                  <span className="font-mono text-sm font-medium tracking-tight text-zinc-900 dark:text-zinc-100">
+                    {project.label}
+                  </span>
+                  {project.href && (
+                    <ArrowUpRight className="h-3.5 w-3.5 text-zinc-400 dark:text-zinc-500 transition-transform duration-200 group-hover:-translate-y-0.5" />
+                  )}
+                </div>
+
+                <span className="shrink-0 font-mono text-[13px] font-medium tracking-tight text-zinc-400 dark:text-zinc-500">
+                  {project.type}
+                </span>
+              </>
+            );
+
+            if (project.href) {
+              return (
+                <a
+                  key={project.id}
+                  href={project.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group flex items-center justify-between gap-4 py-2 px-3 last:border-b-0 text-left transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-900"
+                >
+                  {rowInner}
+                </a>
+              );
+            }
+
             return (
               <button
                 key={project.id}
                 type="button"
                 onClick={() => handleRowClick(project.id)}
-                className="flex items-center justify-between gap-4 py-4 border-b border-zinc-200 dark:border-zinc-800 last:border-b-0 text-left transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-900"
+                className="flex items-center justify-between gap-4 py-2 px-3 last:border-b-0 text-left transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-900"
               >
-                <div className="flex items-center gap-3">
-                  <Image
-                    src={project.icon}
-                    alt={`${project.label} icon`}
-                    width={24}
-                    height={24}
-                    className="h-6 w-6 object-contain"
-                  />
-                  <span className="font-mono text-sm font-medium tracking-tight text-zinc-900 dark:text-zinc-100">
-                    {project.label}
-                  </span>
-                </div>
-                <PlusMinusIcon open={isExpanded} />
+                {rowInner}
               </button>
             );
           })}
