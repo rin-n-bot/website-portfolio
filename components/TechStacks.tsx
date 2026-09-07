@@ -18,15 +18,15 @@ const techStacks = [
 export default function TechStacks() {
   return (
     <>
-      <h1 className="font-mono text-[15px] font-normal text-gray-900 dark:text-gray-100 tracking-tight mb-6 max-w-3xl text-left">
-        Technologies I use to build products, with room to adapt when the<br/> project requires it.
+      <h1 className="font-geist-mono text-sm font-normal text-gray-700 dark:text-gray-300 tracking-tight mb-6 max-w-3xl text-left">
+       Technologies I use to build products across mobile, web, and desktop with room to adapt when the project calls for something else.
       </h1>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-4 gap-y-1">
         {techStacks.map((tech) => (
           <span
             key={tech}
-            className="text-[13px] font-mono font-normal tracking-tight text-gray-400 dark:text-gray-500 transition-colors hover:text-[#FF5F1F]"
+            className="text-[13px] font-geist-mono font-medium tracking-tight text-gray-400 dark:text-gray-500 transition-colors hover:text-[#FF5F1F]"
           >
             {tech}
           </span>

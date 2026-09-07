@@ -27,15 +27,15 @@ export default function Footer() {
       {/* Mobile layout (below sm breakpoint) */}
       <div className="flex justify-between sm:hidden">
         <div className="flex flex-col">
-          <span className="font-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500">
+          <span className="font-geist-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500">
             {time}
           </span>
-          <span className="font-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500">
+          <span className="font-geist-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500">
             in Davao, Philippines
           </span>
         </div>
         <div className="flex flex-col items-end">
-          <span className="font-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500">
+          <span className="font-geist-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500">
             © {year}
           </span>
         </div>
@@ -43,10 +43,10 @@ export default function Footer() {
 
       {/* Desktop layout (sm and up) */}
       <div className="hidden sm:flex items-center justify-between">
-        <span className="font-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500 whitespace-nowrap">
+        <span className="font-geist-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500 whitespace-nowrap">
           {time} in Davao, Philippines
         </span>
-        <span className="font-mono text-[13px] font-normal tracking-wide text-gray-400 dark:text-gray-500 whitespace-nowrap">
+        <span className="font-geist-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500 whitespace-nowrap">
           © {year}
         </span>
       </div>

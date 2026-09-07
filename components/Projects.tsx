@@ -10,7 +10,7 @@ type ProjectId = "sf-credit" | "crossrent";
 
 const projects: { id: ProjectId; label: string; icon: string }[] = [
   { id: "sf-credit", label: "SF Credit Management System", icon: "/sf_icon.png" },
-  { id: "crossrent", label: "CrossRent - Rental App", icon: "/cross rent icon.png" },
+  { id: "crossrent", label: "CrossRent", icon: "/cross rent icon.png" },
 ];
 
 const crossRentScreens = [
@@ -164,7 +164,7 @@ export default function Projects() {
                 key={project.id}
                 type="button"
                 onClick={() => handleRowClick(project.id)}
-                className="flex items-center justify-between gap-4 px-3 py-4 border-b border-zinc-200 dark:border-zinc-800 last:border-b-0 text-left transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-900"
+                className="flex items-center justify-between gap-4 py-4 border-b border-zinc-200 dark:border-zinc-800 last:border-b-0 text-left transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-900"
               >
                 <div className="flex items-center gap-3">
                   <Image
@@ -174,7 +174,7 @@ export default function Projects() {
                     height={24}
                     className="h-6 w-6 object-contain"
                   />
-                  <span className="font-mono text-[15px] font-normal tracking-tight text-zinc-900 dark:text-zinc-100">
+                  <span className="font-geist-mono text-sm font-medium tracking-tight text-zinc-900 dark:text-zinc-100">
                     {project.label}
                   </span>
                 </div>

@@ -27,7 +27,7 @@ function VerifiedBadge({ className }: { className?: string }) {
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center px-6 pb-12 pt-14 text-gray-900 dark:text-gray-100">
-      <main className="flex w-full max-w-xl flex-col items-center gap-3">
+      <main className="flex w-full max-w-lg flex-col items-center gap-3">
 
         {/* Hero – left aligned via self-start */}
         <div className="flex w-full flex-col items-start gap-0 mt-10 mb-8 self-start text-left">
@@ -37,7 +37,7 @@ export default function Home() {
             <div className="flex flex-1 flex-col">
               {/* Name + socials row */}
               <div className="flex items-center justify-between gap-4 mb-6 w-full">
-                <h2 className="font-mono text-md font-normal tracking-tight text-zinc-900 dark:text-zinc-100 flex items-center gap-1">
+                <h2 className="font-geist-mono text-[15px] font-medium tracking-tight text-zinc-900 dark:text-zinc-100 flex items-center gap-1">
                   Ahrone Ambasan
                   <VerifiedBadge className="h-4 w-4 shrink-0" />
                 </h2>
@@ -51,9 +51,13 @@ export default function Home() {
           <HeroText />
         </div>
 
+        {/* subtle divider */}
+        <div className="w-full border-t border-zinc-200 dark:border-zinc-800 mt-10" />
+
+
         {/* /builds label */}
-        <span className="font-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500 self-start mt-15 mb-0">
-          /BUILD
+        <span className="font-geist-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500 self-start mt-15 mb-0">
+          BUILD
         </span>
 
         {/* Projects – centered */}
@@ -62,8 +66,8 @@ export default function Home() {
         </section>
 
         {/* /skills label */}
-        <span className="font-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500 self-start mt-20 mb-0">
-          /SKILLS
+        <span className="font-geist-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500 self-start mt-20 mb-0">
+          SKILLS
         </span>
 
         {/* Tech Stacks – centered */}
@@ -72,14 +76,18 @@ export default function Home() {
         </section>
 
         {/* /collaborate label */}
-        <span className="font-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500 self-start mt-20 mb-0">
-          /COLLAB
+        <span className="font-geist-mono text-[13px] font-normal tracking-tight text-gray-400 dark:text-gray-500 self-start mt-20 mb-0">
+          COLLAB
         </span>
 
         {/* Contact – centered */}
         <section id="contact" className="w-full mb-20 mt-5">
           <Contact />
         </section>
+
+        {/* subtle divider */}
+        <div className="w-full border-t border-zinc-200 dark:border-zinc-800 mt-10" />
+        
         <Footer />
       </main>
     </div>

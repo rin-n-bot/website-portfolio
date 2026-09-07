@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Geist, Geist_Mono, Geist_Pixel, Inter, Libre_Baskerville, Manrope, Onest } from "next/font/google";
+import { DM_Sans, Geist, Geist_Mono, Inter, Libre_Baskerville, Manrope, Onest } from "next/font/google";
 import ScrollProgress from "@/components/ScrollProgress";
 import SmoothScroll from "@/components/SmoothScroll";
 import "./globals.css";
@@ -36,11 +36,6 @@ const libreBaskerville = Libre_Baskerville({
   style: ["normal", "italic"],
 });
 
-const geistPixel = Geist_Pixel({
-  variable: "--font-pixel",
-  subsets: ["latin"],
-});
-
 const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
@@ -60,7 +55,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${dmSans.variable} ${onest.variable} ${geist.variable} ${geistMono.variable} ${libreBaskerville.variable} ${geistPixel.variable} ${manrope.variable} h-full antialiased`}
+      className={`${inter.variable} ${dmSans.variable} ${onest.variable} ${geist.variable} ${geistMono.variable} ${libreBaskerville.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <SmoothScroll />
