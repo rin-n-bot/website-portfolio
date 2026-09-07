@@ -39,11 +39,11 @@ export default function HeroText() {
     <div className="mt-6 font-mono text-sm font-normal tracking-tight text-zinc-700 dark:text-zinc-300">
       <p>
         I&apos;m a Software Dev & Designer in Davao, Philippines, and I like
-        exploring and building things people can actually use.
+        exploring and building things that is usable.
       </p>
 
       <p className="mt-6">
-        I build apps, websites, software, and automations that solve real
+        I build apps, websites, softwares, and automations that solve real
         problems people are actually dealing with.
       </p>
 

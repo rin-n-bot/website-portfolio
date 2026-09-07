@@ -92,7 +92,7 @@ export default function TechStacks() {
   return (
     <>
       <h1 className="font-mono text-sm font-normal text-zinc-700 dark:text-zinc-300 tracking-tight mb-6 max-w-3xl text-left">
-        Technologies I use to build products across mobile, web, and desktop with room to adapt when the project calls for something else.
+        Technologies I use to build products across mobile, web, and desktop apps with room to evolve when the project calls for something else.
       </h1>
 
       <div className="relative w-full overflow-hidden mask-[linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
