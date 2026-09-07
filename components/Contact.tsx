@@ -1,5 +1,7 @@
 "use client";
 
+import { Mail } from "lucide-react";
+
 const contact = {
   email: "main.ahroneambasan@gmail.com",
 };
@@ -41,14 +43,15 @@ export default function Contact() {
     <>
       <div className="flex flex-col items-start gap-6">
         <h2 className="max-w-xl font-mono text-sm font-normal tracking-tight text-zinc-700 dark:text-zinc-300">
-          Willing to learn, adapt and contribute, whether it&apos;s a quick or long term. If you&apos;re building something, <br/><br/>hit me on{" "}
+          Willing to learn, adapt and contribute, whether it&apos;s a quick or long term. If you&apos;re building something, <br/><br/>hit me on this{" "}
           <a
             href={gmailComposeUrl}
             onClick={openGmailCompose}
-            className="text-blue-500 dark:text-blue-400 text-sm font-mono underline tracking-tight underline-offset-2 transition-colors hover:text-[#FF5F1F]"
+            className="align-middle inline-flex items-center gap-1.5 rounded-sm bg-zinc-100 px-2 py-0.5 text-[13px] font-medium tracking-tight text-zinc-900 transition-colors hover:text-[#FF5F1F] dark:bg-zinc-800/50 dark:text-zinc-100"
           >
-            {contact.email}
-          </a>.
+            <Mail className="h-3 w-3" />
+            Mail
+          </a>
         </h2>
 
       </div>

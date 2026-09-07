@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 
 export default function Footer() {
-  const year = new Date().getFullYear();
   const [time, setTime] = useState("");
 
   useEffect(() => {
@@ -26,28 +25,34 @@ export default function Footer() {
     <footer className="w-full pt-2 pb-5">
       {/* Mobile layout (below sm breakpoint) */}
       <div className="flex justify-between sm:hidden">
-        <div className="flex flex-col">
-          <span className="font-mono text-[13px] font-medium tracking-tight text-gray-400 dark:text-gray-500">
+        <a
+          href="/cv.pdf"
+          download
+          className="font-mono text-[13px] font-medium tracking-tight underline text-zinc-400 dark:text-zinc-500 transition-colors hover:text-[#FF5F1F]"
+        >
+          Download CV
+        </a>
+        <div className="flex flex-col text-right">
+          <span className="font-mono text-[13px] font-medium tracking-tight text-zinc-400 dark:text-zinc-500">
             {time}
           </span>
-          <span className="font-mono text-[13px] font-medium tracking-tight text-gray-400 dark:text-gray-500">
+          <span className="font-mono text-[13px] font-medium tracking-tight text-zinc-400 dark:text-zinc-500">
             in Davao, Philippines
-          </span>
-        </div>
-        <div className="flex flex-col items-end">
-          <span className="font-mono text-[13px] font-medium tracking-tight text-gray-400 dark:text-gray-500">
-            © {year} na buseng
           </span>
         </div>
       </div>
 
       {/* Desktop layout (sm and up) */}
       <div className="hidden sm:flex items-center justify-between">
-        <span className="font-mono text-[13px] font-medium tracking-tight text-gray-400 dark:text-gray-500 whitespace-nowrap">
+        <a
+          href="/cv.pdf"
+          download
+          className="font-mono text-[13px] font-medium tracking-tight underline text-zinc-400 dark:text-zinc-500 whitespace-nowrap transition-colors hover:text-[#FF5F1F]"
+        >
+          Download CV
+        </a>
+        <span className="font-mono text-[13px] font-medium tracking-tight text-zinc-400 dark:text-zinc-500 whitespace-nowrap">
           {time} in Davao, Philippines
-        </span>
-        <span className="font-mono text-[13px] font-medium tracking-tight text-gray-400 dark:text-gray-500 whitespace-nowrap">
-          © {year} na buseng
         </span>
       </div>
     </footer>
