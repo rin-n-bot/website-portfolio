@@ -83,7 +83,7 @@ export default function Home() {
         </section>
 
         {/* subtle divider */}
-        <div className="w-full border-t border-zinc-200 dark:border-zinc-800 mt-10" />
+        <div className="w-full border-t border-zinc-200 dark:border-zinc-800 mt-5" />
         
         <Footer />
       </main>
