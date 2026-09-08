@@ -38,8 +38,8 @@ export default function HeroText() {
   return (
     <div className="mt-6 font-mono text-sm font-normal tracking-tight text-zinc-700 dark:text-zinc-300">
       <p>
-        I&apos;m a Software Dev & Designer in Davao, Philippines, and I like
-        exploring and building things that is usable.
+        I&apos;m a Software Dev & Designer in Davao, Philippines. I like
+        exploring and building things that is usable and effortless.
       </p>
 
       <p className="mt-6">
