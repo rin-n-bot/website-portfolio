@@ -4,6 +4,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ThemeToggle from "@/components/ThemeToggle";
 import HeroText from "@/components/HeroText";
+import { Pin } from "lucide-react";
 
 function VerifiedBadge({ className }: { className?: string }) {
   return (
@@ -74,9 +75,13 @@ export default function Home() {
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.5),transparent_60%)] dark:bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.06),transparent_60%)]"
               />
-              <h3 className="relative font-mono text-sm font-medium tracking-tight text-black dark:text-white">
-                UX
-              </h3>
+              <div className="relative flex items-center justify-between">
+                <h3 className="font-mono text-sm font-medium tracking-tight text-black dark:text-white">
+                  UX
+                </h3>
+                <Pin className="h-3.5 w-3.5 origin-top rotate-24 text-zinc-400 dark:text-zinc-500" />
+              </div>
+              <div className="relative my-2 border-t border-zinc-200 dark:border-zinc-700" />
               <p className="relative font-mono text-sm tracking-tight text-zinc-600 dark:text-zinc-400">
                 I map out the flow first, because a product only works if people can actually use it.
               </p>
@@ -87,9 +92,13 @@ export default function Home() {
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.5),transparent_60%)] dark:bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.06),transparent_60%)]"
               />
-              <h3 className="relative font-mono text-sm font-medium tracking-tight text-black dark:text-white">
-                UI
-              </h3>
+              <div className="relative flex items-center justify-between">
+                <h3 className="font-mono text-sm font-medium tracking-tight text-black dark:text-white">
+                  UI
+                </h3>
+                <Pin className="h-3.5 w-3.5 origin-top rotate-24 text-zinc-400 dark:text-zinc-500" />
+              </div>
+              <div className="relative my-2 border-t border-zinc-200 dark:border-zinc-700" />
               <p className="relative font-mono text-sm tracking-tight text-zinc-600 dark:text-zinc-400">
                 Keeping interface clean and simple, nothing added that doesn&apos;t need to be there.
               </p>
@@ -100,9 +109,13 @@ export default function Home() {
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.5),transparent_60%)] dark:bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.06),transparent_60%)]"
               />
-              <h3 className="relative font-mono text-sm font-medium tracking-tight text-black dark:text-white">
-                Architecture
-              </h3>
+              <div className="relative flex items-center justify-between">
+                <h3 className="font-mono text-sm font-medium tracking-tight text-black dark:text-white">
+                  Architecture
+                </h3>
+                <Pin className="h-3.5 w-3.5 origin-top rotate-24 text-zinc-400 dark:text-zinc-500" />
+              </div>
+              <div className="relative my-2 border-t border-zinc-200 dark:border-zinc-700" />
               <p className="relative font-mono text-sm tracking-tight text-zinc-600 dark:text-zinc-400">
                 I aim to keep the code clean and maintainable, with room to grow as the project does.
               </p>
