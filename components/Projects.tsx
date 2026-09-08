@@ -163,7 +163,7 @@ export default function Projects() {
                       className="h-6 w-6 object-contain"
                     />
                   )}
-                  <span className="font-mono text-sm font-medium tracking-tight text-zinc-900 dark:text-zinc-100">
+                  <span className="font-mono text-sm font-medium tracking-tight text-black dark:text-white">
                     {project.label}
                   </span>
                   {project.href && (

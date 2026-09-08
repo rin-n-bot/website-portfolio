@@ -26,7 +26,7 @@ function VerifiedBadge({ className }: { className?: string }) {
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center px-6 pb-12 pt-14 text-gray-900 dark:text-gray-100">
+    <div className="flex min-h-screen flex-col items-center justify-center px-6 pb-14 pt-12 text-gray-900 dark:text-gray-100">
       <main className="flex w-full max-w-lg flex-col items-center gap-3">
 
         {/* Hero – left aligned via self-start */}
@@ -37,7 +37,7 @@ export default function Home() {
             <div className="flex flex-1 flex-col">
               {/* Name + socials row */}
               <div className="flex items-center justify-between gap-4 mb-6 w-full">
-                <h2 className="font-mono text-[15px] font-medium tracking-tight text-zinc-900 dark:text-zinc-100 flex items-center gap-1">
+                <h2 className="font-mono text-[15px] font-medium tracking-tight text-black dark:text-white flex items-center gap-1">
                   Ahrone Ambasan
                   <VerifiedBadge className="h-4 w-4 shrink-0" />
                 </h2>
@@ -53,7 +53,7 @@ export default function Home() {
 
 
         {/* /builds label */}
-        <span className="animate-fade-in-staggered fade-delay-2 font-geist-mono text-xs font-medium tracking-tight text-gray-400 dark:text-gray-500 self-start mt-5 mb-0">
+        <span className="animate-fade-in-staggered fade-delay-2 font-geist-mono text-xs font-medium tracking-tight text-zinc-400 dark:text-zinc-500 self-start mt-5 mb-0">
           Builds
         </span>
 
@@ -62,8 +62,57 @@ export default function Home() {
           <Projects />
         </section>
 
+
+        <div className="mt-15">
+          <h2 className="mb-4 font-geist-mono text-xs font-medium tracking-tight text-zinc-400 dark:text-zinc-500">
+            Approach
+          </h2>
+
+<div className="grid gap-2 sm:grid-cols-3">
+  <div className="relative overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800/50 p-4 transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-black/40">
+    <div
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.5),transparent_60%)] dark:bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.06),transparent_60%)]"
+    />
+    <h3 className="relative font-mono text-sm font-medium tracking-tight text-black dark:text-white">
+      UX
+    </h3>
+    <p className="relative font-mono text-sm tracking-tight text-zinc-600 dark:text-zinc-400">
+      I map out the flow first, because a product only works if people can actually use it.
+    </p>
+  </div>
+
+  <div className="relative overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800/50 p-4 transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-black/40">
+    <div
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.5),transparent_60%)] dark:bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.06),transparent_60%)]"
+    />
+    <h3 className="relative font-mono text-sm font-medium tracking-tight text-black dark:text-white">
+      UI
+    </h3>
+    <p className="relative font-mono text-sm tracking-tight text-zinc-600 dark:text-zinc-400">
+      Keeping interface clean and simple, nothing added that doesn&apos;t need to be there.
+    </p>
+  </div>
+
+  <div className="relative overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800/50 p-4 transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-black/40">
+    <div
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.5),transparent_60%)] dark:bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.06),transparent_60%)]"
+    />
+    <h3 className="relative font-mono text-sm font-medium tracking-tight text-black dark:text-white">
+      Architecture
+    </h3>
+    <p className="relative font-mono text-sm tracking-tight text-zinc-600 dark:text-zinc-400">
+      I aim to keep the code clean and maintainable, with room to grow as the project does.
+    </p>
+  </div>
+</div>
+        </div>
+
+
         {/* /skills label */}
-        <span className="animate-fade-in-staggered fade-delay-3 font-geist-mono text-xs font-medium tracking-tight text-gray-400 dark:text-gray-500 self-start mt-15 mb-0">
+        <span className="animate-fade-in-staggered fade-delay-3 font-geist-mono text-xs font-medium tracking-tight text-zinc-400 dark:text-zinc-500 self-start mt-15 mb-0">
           Skills
         </span>
 
@@ -73,7 +122,7 @@ export default function Home() {
         </section>
 
         {/* /collaborate label */}
-        <span className="animate-fade-in-staggered fade-delay-4 font-geist-mono text-xs font-medium tracking-tight text-gray-400 dark:text-gray-500 self-start mt-15 mb-0">
+        <span className="animate-fade-in-staggered fade-delay-4 font-geist-mono text-xs font-medium tracking-tight text-zinc-400 dark:text-zinc-500 self-start mt-15 mb-0">
           Collaborate
         </span>
 

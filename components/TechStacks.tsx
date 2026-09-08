@@ -107,7 +107,7 @@ export default function TechStacks() {
           {[...techStacks, ...techStacks].map((tech, index) => (
             <span
               key={`${tech}-${index}`}
-              className="shrink-0 rounded-sm border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 px-3 py-1 text-[13px] font-mono font-medium tracking-tight text-zinc-900 dark:text-zinc-100"
+              className="shrink-0 rounded-sm border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 px-3 py-1 text-[13px] font-mono font-medium tracking-tight text-black dark:text-white"
             >
               {tech}
             </span>

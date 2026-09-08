@@ -47,7 +47,7 @@ export default function Contact() {
           <a
             href={gmailComposeUrl}
             onClick={openGmailCompose}
-            className="align-middle inline-flex items-center gap-1.5 rounded-sm bg-zinc-100 px-2 py-0.5 text-[13px] font-medium tracking-tight text-zinc-900 transition-colors hover:text-[#FF5F1F] dark:bg-zinc-800/50 dark:text-zinc-100"
+            className="align-middle inline-flex items-center gap-1.5 rounded-sm bg-zinc-100 px-2 py-0.5 text-[13px] font-medium tracking-tight text-black transition-colors hover:text-[#FF5F1F] dark:bg-zinc-800/50 dark:text-white"
           >
             <Mail className="h-3 w-3" />
             Mail
