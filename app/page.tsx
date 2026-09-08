@@ -63,51 +63,51 @@ export default function Home() {
         </section>
 
 
-        <div className="mt-15">
+        <div className="animate-fade-in-staggered fade-delay-2 mt-15">
           <h2 className="mb-4 font-geist-mono text-xs font-medium tracking-tight text-zinc-400 dark:text-zinc-500">
             Approach
           </h2>
 
-<div className="grid gap-2 sm:grid-cols-3">
-  <div className="relative overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800/50 p-4 transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-black/40">
-    <div
-      aria-hidden="true"
-      className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.5),transparent_60%)] dark:bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.06),transparent_60%)]"
-    />
-    <h3 className="relative font-mono text-sm font-medium tracking-tight text-black dark:text-white">
-      UX
-    </h3>
-    <p className="relative font-mono text-sm tracking-tight text-zinc-600 dark:text-zinc-400">
-      I map out the flow first, because a product only works if people can actually use it.
-    </p>
-  </div>
+          <div className="grid gap-2 sm:grid-cols-3">
+            <div className="relative overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800/50 p-4 transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-black/40">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.5),transparent_60%)] dark:bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.06),transparent_60%)]"
+              />
+              <h3 className="relative font-mono text-sm font-medium tracking-tight text-black dark:text-white">
+                UX
+              </h3>
+              <p className="relative font-mono text-sm tracking-tight text-zinc-600 dark:text-zinc-400">
+                I map out the flow first, because a product only works if people can actually use it.
+              </p>
+            </div>
 
-  <div className="relative overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800/50 p-4 transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-black/40">
-    <div
-      aria-hidden="true"
-      className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.5),transparent_60%)] dark:bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.06),transparent_60%)]"
-    />
-    <h3 className="relative font-mono text-sm font-medium tracking-tight text-black dark:text-white">
-      UI
-    </h3>
-    <p className="relative font-mono text-sm tracking-tight text-zinc-600 dark:text-zinc-400">
-      Keeping interface clean and simple, nothing added that doesn&apos;t need to be there.
-    </p>
-  </div>
+            <div className="relative overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800/50 p-4 transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-black/40">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.5),transparent_60%)] dark:bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.06),transparent_60%)]"
+              />
+              <h3 className="relative font-mono text-sm font-medium tracking-tight text-black dark:text-white">
+                UI
+              </h3>
+              <p className="relative font-mono text-sm tracking-tight text-zinc-600 dark:text-zinc-400">
+                Keeping interface clean and simple, nothing added that doesn&apos;t need to be there.
+              </p>
+            </div>
 
-  <div className="relative overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800/50 p-4 transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-black/40">
-    <div
-      aria-hidden="true"
-      className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.5),transparent_60%)] dark:bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.06),transparent_60%)]"
-    />
-    <h3 className="relative font-mono text-sm font-medium tracking-tight text-black dark:text-white">
-      Architecture
-    </h3>
-    <p className="relative font-mono text-sm tracking-tight text-zinc-600 dark:text-zinc-400">
-      I aim to keep the code clean and maintainable, with room to grow as the project does.
-    </p>
-  </div>
-</div>
+            <div className="relative overflow-hidden rounded-lg bg-zinc-100 dark:bg-zinc-800/50 p-4 transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-black/40">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.5),transparent_60%)] dark:bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.06),transparent_60%)]"
+              />
+              <h3 className="relative font-mono text-sm font-medium tracking-tight text-black dark:text-white">
+                Architecture
+              </h3>
+              <p className="relative font-mono text-sm tracking-tight text-zinc-600 dark:text-zinc-400">
+                I aim to keep the code clean and maintainable, with room to grow as the project does.
+              </p>
+            </div>
+          </div>
         </div>
 
 
