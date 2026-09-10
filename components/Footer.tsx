@@ -28,15 +28,15 @@ export default function Footer() {
         <a
           href="/cv.pdf"
           download
-          className="font-mono text-[13px] font-medium tracking-tight underline text-zinc-400 dark:text-zinc-500 transition-colors hover:text-[#FF5F1F]"
+          className="font-geist text-[13px] font-medium tracking-normal underline text-zinc-400 dark:text-zinc-500 transition-colors hover:text-[#FF5F1F]"
         >
           Download CV
         </a>
         <div className="flex flex-col text-right">
-          <span className="font-mono text-[13px] font-medium tracking-tight text-zinc-400 dark:text-zinc-500">
+          <span className="font-geist text-[13px] font-medium tracking-normal text-zinc-400 dark:text-zinc-500">
             {time}
           </span>
-          <span className="font-mono text-[13px] font-medium tracking-tight text-zinc-400 dark:text-zinc-500">
+          <span className="font-geist text-[13px] font-medium tracking-normal text-zinc-400 dark:text-zinc-500">
             in Davao, Philippines
           </span>
         </div>
@@ -47,11 +47,11 @@ export default function Footer() {
         <a
           href="/cv.pdf"
           download
-          className="font-mono text-[13px] font-medium tracking-tight underline text-zinc-400 dark:text-zinc-500 whitespace-nowrap transition-colors hover:text-[#FF5F1F]"
+          className="font-geist text-[13px] font-medium tracking-normal underline text-zinc-400 dark:text-zinc-500 whitespace-nowrap transition-colors hover:text-[#FF5F1F]"
         >
           Download CV
         </a>
-        <span className="font-mono text-[13px] font-medium tracking-tight text-zinc-400 dark:text-zinc-500 whitespace-nowrap">
+        <span className="font-geist text-[13px] font-medium tracking-normal text-zinc-400 dark:text-zinc-500 whitespace-nowrap">
           {time} in Davao, Philippines
         </span>
       </div>

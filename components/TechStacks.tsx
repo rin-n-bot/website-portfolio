@@ -91,7 +91,7 @@ export default function TechStacks() {
 
   return (
     <>
-      <h1 className="font-mono text-sm font-normal text-zinc-700 dark:text-zinc-300 tracking-tight mb-6 max-w-3xl text-left">
+      <h1 className="font-geist text-md font-normal text-zinc-700 dark:text-zinc-300 tracking-normal mb-6 max-w-3xl text-left">
         Technologies I use to build products across mobile, web, and desktop apps with room to evolve when the project calls for something else.
       </h1>
 
@@ -107,7 +107,7 @@ export default function TechStacks() {
           {[...techStacks, ...techStacks].map((tech, index) => (
             <span
               key={`${tech}-${index}`}
-              className="shrink-0 rounded-sm border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 px-3 py-1 text-[13px] font-mono font-medium tracking-tight text-black dark:text-white"
+              className="shrink-0 rounded-sm border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 px-3 py-1 text-[13px] font-geist font-medium tracking-normal text-black dark:text-white"
             >
               {tech}
             </span>

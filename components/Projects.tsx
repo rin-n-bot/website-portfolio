@@ -163,7 +163,7 @@ export default function Projects() {
                       className="h-6 w-6 object-contain"
                     />
                   )}
-                  <span className="font-mono text-sm font-medium tracking-tight text-black dark:text-white">
+                  <span className="font-geist text-[15px] font-medium tracking-normal text-black dark:text-white">
                     {project.label}
                   </span>
                   {project.href && (
@@ -171,7 +171,7 @@ export default function Projects() {
                   )}
                 </div>
 
-                <span className="shrink-0 font-mono text-[13px] font-medium tracking-tight text-zinc-400 dark:text-zinc-500">
+                <span className="shrink-0 font-geist text-[13px] font-medium tracking-normal text-zinc-400 dark:text-zinc-500">
                   {project.type}
                 </span>
               </>

@@ -20,7 +20,7 @@ function SocialChip({ name, href, icon, invertInDark }: SocialLink) {
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="inline-flex items-center gap-1.5 rounded-sm border border-transparent bg-zinc-100 px-2 py-0.5 text-[13px] font-medium tracking-tight text-black transition-colors hover:text-[#FF5F1F] dark:transparent dark:bg-zinc-800/50 dark:text-white"
+      className="inline-flex items-center gap-1.5 rounded-sm border border-transparent bg-zinc-100 px-2 py-0.5 text-[13px] font-medium tracking-normal text-black transition-colors hover:text-[#FF5F1F] dark:transparent dark:bg-zinc-800/50 dark:text-white"
     >
       <Image
         src={icon}
@@ -36,7 +36,7 @@ function SocialChip({ name, href, icon, invertInDark }: SocialLink) {
 
 export default function HeroText() {
   return (
-    <div className="mt-6 font-mono text-sm font-normal tracking-tight text-zinc-700 dark:text-zinc-300">
+    <div className="mt-6 font-geist text-md font-normal tracking-normal text-zinc-700 dark:text-zinc-300">
       <p>
         I&apos;m a Software Dev & Designer in Davao, Philippines. I like
         exploring and building things that is usable and effortless.
